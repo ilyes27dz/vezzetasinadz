@@ -1,0 +1,1345 @@
+puplic
+في هدا الملف لدي هذه الصفحات
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>منصة صحتي | بوابتك الصحية الشاملة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- خطوط وأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body { font-family: 'Cairo', Arial, sans-serif; background: #f7f7f8; }
+        .navbar { background: #2ecc71 !important; }
+        .navbar-brand { font-weight: bold; font-size: 2rem; }
+        .nav-link, .btn-outline-light { color: #fff !important; font-weight: 500; }
+        .hero { background: linear-gradient(rgba(46,204,113,0.94),rgba(39,174,96,0.7)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover; min-height: 400px; color: #fff; display: flex; align-items: center;}
+        .hero-content { margin-right: 5vw;}
+        .hero-title { font-size: 2.5rem; font-weight: bold;}
+        .hero-desc { font-size: 1.2rem;}
+        .services-section { margin-top: -60px; }
+        .card-service { border-radius: 20px; transition: transform .18s; box-shadow: 0 4px 24px 0 rgba(46,204,113,0.12); background: #fff; }
+        .card-service:hover { transform: translateY(-7px) scale(1.03); box-shadow: 0 10px 32px 0 rgba(46,204,113,0.22);}
+        .card-service img { height: 110px; object-fit: cover; border-radius: 1.25rem 1.25rem 0 0;}
+        .section-title { font-weight: bold; color: #2ecc71; font-size: 2rem; margin-bottom: 32px; text-align: center;}
+        .about-section { background: #fff; border-radius: 16px; padding: 36px 20px; margin-top: 35px;}
+        .stats-section {background: #eafaf1; border-radius: 16px; padding: 36px 0; margin-bottom: 30px;}
+        .stat-card { text-align:center; }
+        .stat-num { font-size:2.2rem; font-weight:700; color:#27ae60;}
+        .stat-label { font-size:1.1rem; color:#666;}
+        .testimonials-section { background: #fcfcfc; border-radius: 16px; padding: 36px 0; margin-top: 35px; }
+        .testimonial { background: #fff; border-radius: 18px; border:1.5px solid #e1e6e8; padding: 20px 18px; margin: 10px; }
+        .testimonial .bi { color: #f8d90f; }
+        .footer { background:linear-gradient(90deg,#2ecc71 0,#27ae60 100%); color:#fff; padding:35px 0 12px 0; margin-top: 60px; border-radius: 24px 24px 0 0;}
+        .btn-main { background: #2ecc71; color: #fff; border: none; border-radius: 50px; font-size: 1.1rem; padding: 10px 32px; font-weight: bold; transition: background .2s;}
+        .btn-main:hover, .btn-main:focus { background: #27ae60;}
+        @media (max-width: 768px){
+            .hero-title { font-size:1.7rem;}
+            .hero-content { margin-right:0;}
+        }
+    </style>
+</head>
+<body>
+<!-- الهيدر -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="index.php"><i class="bi bi-heart-pulse"></i> صحتي</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">عن المنصة</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">آراء العملاء</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.php">الاشتراك</a></li>
+                <li class="nav-item"><a class="nav-link" href="book.php">الحجز السريع</a></li>
+            </ul>
+            <a href="admin/login.php" class="btn btn-outline-light ms-2">دخول المسؤول</a>
+        </div>
+    </div>
+</nav>
+
+<!-- هيرو وسلايدر عبارات -->
+<div class="hero py-5">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-title mb-2">كل خدمات الصحة في الجزائر بنقرة واحدة</div>
+            <div class="hero-desc mb-4">منصة متكاملة تجمع الأطباء، المخابر، الصيادلة، المراكز، سيارات الإسعاف، وكل ما تحتاجه لصحتك في مكان واحد.</div>
+            <a href="book.php" class="btn btn-main me-2 mb-2">احجز الآن</a>
+            <a href="register.php" class="btn btn-outline-light mb-2">سجّل كمقدم خدمة</a>
+        </div>
+    </div>
+</div>
+
+<!-- إحصائيات سريعة -->
+<div class="container stats-section mt-4 mb-2">
+    <div class="row justify-content-center">
+        <div class="col-md-2 col-4 stat-card">
+            <div class="stat-num">+1100</div>
+            <div class="stat-label">طبيب</div>
+        </div>
+        <div class="col-md-2 col-4 stat-card">
+            <div class="stat-num">+220</div>
+            <div class="stat-label">مختبر</div>
+        </div>
+        <div class="col-md-2 col-4 stat-card">
+            <div class="stat-num">+350</div>
+            <div class="stat-label">صيدلية</div>
+        </div>
+        <div class="col-md-2 col-4 stat-card">
+            <div class="stat-num">+80</div>
+            <div class="stat-label">سيارة إسعاف</div>
+        </div>
+        <div class="col-md-2 col-4 stat-card">
+            <div class="stat-num">+4000</div>
+            <div class="stat-label">موعد ناجح</div>
+        </div>
+    </div>
+</div>
+
+<!-- خدماتنا -->
+<div class="container services-section py-5" id="services">
+    <div class="section-title mb-4">اختر الخدمة التي تحتاجها</div>
+    <div class="row g-4 justify-content-center">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="doctors.php?type=public" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd53?auto=format&fit=crop&w=400&q=80" alt="أطباء عوام" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-person-vcard fs-2 text-success"></i>
+                        <h5 class="fw-bold">أطباء عوام</h5>
+                        <p class="text-muted">القطاع العمومي.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="doctors.php?type=private" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1517363898873-fafc2070293c?auto=format&fit=crop&w=400&q=80" alt="أطباء خواص" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-person-badge fs-2 text-success"></i>
+                        <h5 class="fw-bold">أطباء خواص</h5>
+                        <p class="text-muted">القطاع الخاص.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="pharmacies.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1511174511562-5f97f4f4c1b3?auto=format&fit=crop&w=400&q=80" alt="صيدليات" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-capsule fs-2 text-success"></i>
+                        <h5 class="fw-bold">الصيادلة</h5>
+                        <p class="text-muted">دليل الصيدليات.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="labs.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1588776814546-ec7e93c7f7b6?auto=format&fit=crop&w=400&q=80" alt="مخابر التحليل" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-droplet-half fs-2 text-success"></i>
+                        <h5 class="fw-bold">مخابر التحليل</h5>
+                        <p class="text-muted">تحاليل طبية.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="psychologists.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="مختص نفسي" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-emoji-smile fs-2 text-success"></i>
+                        <h5 class="fw-bold">مختصون نفسيون</h5>
+                        <p class="text-muted">استشارات نفسية.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="ambulances.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?auto=format&fit=crop&w=400&q=80" alt="سيارات اسعاف" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-truck fs-2 text-success"></i>
+                        <h5 class="fw-bold">سيارات الإسعاف</h5>
+                        <p class="text-muted">خدمات إسعاف طارئة.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="orthophonists.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="أرطوفوني" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-chat-square-heart fs-2 text-success"></i>
+                        <h5 class="fw-bold">مختصون أرطوفوني</h5>
+                        <p class="text-muted">علاج النطق والتواصل.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="physical_centers.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80" alt="العلاج الفيزيائي" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-flower2 fs-2 text-success"></i>
+                        <h5 class="fw-bold">علاج فيزيائي</h5>
+                        <p class="text-muted">تأهيل فيزيائي متطور.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="imaging_labs.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&w=400&q=80" alt="مخابر الأشعة" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-camera2 fs-2 text-success"></i>
+                        <h5 class="fw-bold">مخابر الأشعة</h5>
+                        <p class="text-muted">تحاليل تصويرية.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="hospitals.php" class="text-decoration-none">
+                <div class="card card-service h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="مؤسسات استشفائية" class="card-img-top">
+                    <div class="card-body">
+                        <i class="bi bi-hospital fs-2 text-success"></i>
+                        <h5 class="fw-bold">مؤسسات استشفائية</h5>
+                        <p class="text-muted">مستشفيات ومصحات.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <a href="book.php" class="btn btn-main btn-lg">احجز موعد لأي خدمة</a>
+    </div>
+</div>
+
+<!-- نبذة عن المنصة -->
+<div class="container about-section shadow" id="about">
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <h3 class="mb-3 text-success fw-bold">لماذا منصة صحتي؟</h3>
+            <p class="lead">نحن نؤمن بأن الصحة حق للجميع. منصتنا توفر لك جميع الخدمات الطبية والصحية في الجزائر في مكان واحد، مع إمكانية الحجز المباشر ومتابعة مواعيدك وتجاربك بكل سهولة وشفافية. فريقنا ملتزم بخدمتك على مدار الساعة، مع التحديث المستمر لقائمة الخدمات والمختصين.</p>
+            <ul>
+                <li>بحث سريع وسهل عن كل خدمة</li>
+                <li>تقييمات وآراء حقيقية من المستخدمين</li>
+                <li>دعم فني مباشر وفريق مستعد للمساعدة</li>
+                <li>حجز مباشر بدون تعقيدات أو تسجيل معقد</li>
+            </ul>
+        </div>
+        <div class="col-md-4 text-center d-none d-md-block">
+            <img src="https://cdn-icons-png.flaticon.com/512/4086/4086679.png" alt="صحتك" style="max-width: 170px;">
+        </div>
+    </div>
+</div>
+
+<!-- آراء العملاء -->
+<div class="container testimonials-section" id="testimonials">
+    <div class="section-title">ماذا قالوا عنّا؟</div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 testimonial">
+            <div class="mb-2"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+            <div class="mb-1">"خدمة رائعة وسريعة! سهّلت عليّ إيجاد طبيب في مدينتي."</div>
+            <div class="small text-success fw-bold">- أحمد من الجزائر</div>
+        </div>
+        <div class="col-md-4 testimonial">
+            <div class="mb-2"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star"></i></div>
+            <div class="mb-1">"أعجبتني سهولة الحجز والتواصل مع المختصين."</div>
+            <div class="small text-success fw-bold">- إيمان من وهران</div>
+        </div>
+        <div class="col-md-4 testimonial">
+            <div class="mb-2"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+            <div class="mb-1">"منصة متكاملة لكل أفراد العائلة، بالتوفيق لكم."</div>
+            <div class="small text-success fw-bold">- منى من عنابة</div>
+        </div>
+    </div>
+</div>
+
+<!-- الفوتر -->
+<footer class="footer text-center mt-5">
+    <div class="container">
+        <div>
+            <a href="index.php" class="navbar-brand text-white"><i class="bi bi-heart-pulse"></i> صحتي</a> | جميع الحقوق محفوظة &copy; <?= date('Y') ?>
+        </div>
+        <div class="mt-2 small">
+            تابعنا على
+            <a href="#" class="text-white ms-1"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white ms-1"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white ms-1"><i class="bi bi-twitter"></i></a>
+            | تصميم وبرمجة: <a href="mailto:youremail@email.com" class="text-white">فريق صحتي</a>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+puplic/index.php
+
+
+
+puplic/register.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name  = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $pass  = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $role  = $_POST['role'];
+    $address = trim($_POST['address']);
+    $phone = trim($_POST['phone']);
+    $work_times = trim($_POST['work_times']);
+    $bio = trim($_POST['bio']);
+    $specialty = trim($_POST['specialty']);
+    $avatar = '';
+
+    // رفع الصورة
+    if(!empty($_FILES['avatar']['name'])){
+        $avatar = uniqid().basename($_FILES['avatar']['name']);
+        move_uploaded_file($_FILES['avatar']['tmp_name'], "../uploads/".$avatar);
+    }
+
+    $stmt = $pdo->prepare("INSERT INTO users (name, email, password, role, avatar, address, phone, work_times) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    if($stmt->execute([$name, $email, $pass, $role, $avatar, $address, $phone, $work_times])){
+        $user_id = $pdo->lastInsertId();
+        $stmt2 = $pdo->prepare("INSERT INTO professionals (user_id, specialty, bio, approved) VALUES (?, ?, ?, 0)");
+        $stmt2->execute([$user_id, $specialty, $bio]);
+        echo "<div class='alert alert-success text-center'>تم التسجيل بنجاح! يرجى انتظار موافقة الإدارة.</div>";
+    } else {
+        $error = "حدث خطأ، حاول مجدداً.";
+    }
+}
+?>
+<div class="container py-5">
+    <h2 class="mb-4 text-center">تسجيل مختص جديد</h2>
+    <?php if($error): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>
+    <form method="post" enctype="multipart/form-data" class="card p-4 shadow mx-auto" style="max-width:600px">
+        <div class="mb-3">
+            <label class="form-label">الاسم الكامل</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">البريد الإلكتروني</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">كلمة المرور</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">الدور</label>
+            <select name="role" class="form-select" required>
+                <option value="psychologist">مختص نفسي</option>
+                <option value="orthophonist">أرطوفوني</option>
+                <option value="physical_center">مركز علاج فيزيائي</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">التخصص</label>
+            <input type="text" name="specialty" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">العنوان</label>
+            <input type="text" name="address" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">رقم الهاتف</label>
+            <input type="text" name="phone" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">أوقات العمل</label>
+            <input type="text" name="work_times" class="form-control" placeholder="مثال: السبت-الخميس 8ص-4م" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">نبذة عنك</label>
+            <textarea name="bio" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">صورة البروفايل</label>
+            <input type="file" name="avatar" class="form-control" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-success w-100">تسجيل</button>
+    </form>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/logout.php
+<?php
+session_start();
+session_destroy();
+header('Location: login.php');
+exit;
+?>
+
+puplic/doctors.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT d.*, u.name FROM doctors d JOIN users u ON d.user_id = u.id WHERE d.approved=1");
+$doctors = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">قائمة الأطباء المتاحين</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($doctors as $doc): ?>
+            <div class="col-md-3 col-sm-6">
+                <div class="card card-doctor shadow-sm">
+                    <img src="<?= $doc['photo'] ? '../uploads/'.$doc['photo'] : 'https://randomuser.me/api/portraits/men/' . rand(1,80) . '.jpg' ?>" class="card-img-top" alt="طبيب">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($doc['name']) ?></h5>
+                        <small class="text-muted mb-2 d-block"><?= htmlspecialchars($doc['specialization']) ?></small>
+                        <span class="badge bg-success"><?= htmlspecialchars($doc['city']) ?></span>
+                        <p class="card-text mt-2"><?= htmlspecialchars($doc['bio']) ?></p>
+                        <!-- زر حجز موعد أو استشارة -->
+                        <a href="consult.php?doctor_id=<?= $doc['id'] ?>" class="btn btn-outline-success btn-sm">استشارة</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($doctors)): ?>
+            <div class="alert alert-warning text-center mt-4">لا يوجد أطباء متاحون حاليا.</div>
+        <?php endif; ?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/manage_doctors.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+    header('Location: ../login.php'); exit;
+}
+
+$doctors = $pdo->query("SELECT * FROM doctors")->fetchAll();
+?>
+<div class="container py-4">
+    <h3 class="mb-3 text-success">إدارة الأطباء</h3>
+    <a href="add_doctor.php" class="btn btn-success mb-3">إضافة طبيب جديد</a>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>الاسم</th>
+                <th>النوع</th>
+                <th>التخصص</th>
+                <th>المدينة</th>
+                <th>إجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($doctors as $doc): ?>
+            <tr>
+                <td><?= htmlspecialchars($doc['name']) ?></td>
+                <td><?= htmlspecialchars($doc['type']) ?></td>
+                <td><?= htmlspecialchars($doc['specialization']) ?></td>
+                <td><?= htmlspecialchars($doc['city']) ?></td>
+                <td>
+                    <a href="edit_doctor.php?id=<?= $doc['id'] ?>" class="btn btn-sm btn-info">تعديل</a>
+                    <a href="delete_doctor.php?id=<?= $doc['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('تأكيد الحذف؟')">حذف</a>
+                </td>
+            </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/book.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+if (!isset($_GET['type'], $_GET['id'])) {
+    echo "<div class='alert alert-danger text-center'>خدمة غير محددة</div>";
+    include '../includes/footer.php'; exit;
+}
+
+$type = $_GET['type'];
+$pro_id = intval($_GET['id']);
+
+// جلب بيانات المختص
+if ($type == 'orthophonist' || $type == 'psychologist' || $type == 'physical_center') {
+    $stmt = $pdo->prepare("SELECT u.*, p.specialty FROM users u JOIN professionals p ON u.id=p.user_id WHERE u.id=?");
+    $stmt->execute([$pro_id]);
+    $pro = $stmt->fetch();
+} else {
+    // خدمات مثل المخابر أو سيارات الإسعاف أو مستشفيات
+    $table = '';
+    if ($type == 'lab') $table = 'labs';
+    if ($type == 'ambulance') $table = 'ambulances';
+    if ($type == 'imaging_lab') $table = 'imaging_labs';
+    if ($type == 'hospital') $table = 'hospitals';
+    $stmt = $pdo->prepare("SELECT * FROM $table WHERE id=?");
+    $stmt->execute([$pro_id]);
+    $pro = $stmt->fetch();
+}
+if (!$pro) {
+    echo "<div class='alert alert-danger text-center'>المختص أو الخدمة غير موجودة</div>";
+    include '../includes/footer.php'; exit;
+}
+
+$msg = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = trim($_POST['name']);
+    $phone = trim($_POST['phone']);
+    $date = trim($_POST['date']);
+    $note = trim($_POST['note']);
+    // سجل الحجز في جدول "appointments" أو جدول خاص بالحجوزات
+    $stmt = $pdo->prepare("INSERT INTO appointments (patient_id, doctor_id, date, status, message) VALUES (NULL, ?, ?, 'pending', ?)");
+    $stmt->execute([$pro['id'], $date, "اسم الزبون: $name، هاتف: $phone، ملاحظة: $note"]);
+    $msg = "<div class='alert alert-success text-center'>تم إرسال طلب الحجز! سنتصل بك للتأكيد.</div>";
+}
+?>
+<div class="container py-5">
+    <h2 class="mb-4 text-center">حجز موعد مع <?= htmlspecialchars($pro['name'] ?? $pro['company'] ?? $pro['name']) ?></h2>
+    <?= $msg ?>
+    <form method="post" class="card p-4 shadow mx-auto" style="max-width:500px">
+        <div class="mb-3">
+            <label class="form-label">اسمك الكامل</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">رقم الهاتف</label>
+            <input type="text" name="phone" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">التاريخ/الوقت المطلوب</label>
+            <input type="datetime-local" name="date" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ملاحظة إضافية</label>
+            <textarea name="note" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">إرسال الحجز</button>
+    </form>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/ads.php
+<?php
+include_once '../config/db.php';
+$stmt = $pdo->query("SELECT * FROM ads WHERE NOW() BETWEEN start_at AND end_at ORDER BY RAND() LIMIT 1");
+$ad = $stmt->fetch();
+if($ad) {
+    echo "<div class='alert alert-info my-3 text-center'>
+            <a href='{$ad['link']}' target='_blank'>
+                <img src='../uploads/{$ad['image']}' style='max-width:200px'><br>
+                <strong>{$ad['title']}</strong>
+            </a>
+          </div>";
+}
+?>
+puplic/ambulances.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT * FROM ambulances WHERE approved=1");
+$data = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">سيارات الإسعاف</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($data as $amb): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="سيارة إسعاف">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($amb['company']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($amb['city']) ?></span>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($amb['phone']) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($data)):?>
+            <div class="alert alert-warning text-center">لا يوجد سيارات إسعاف حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/consult.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+if(!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+$user = $_SESSION['user'];
+
+// استشارة جديدة (مريض يرسل رسالة لطبيب)
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['doctor_id'], $_POST['message'])) {
+    $stmt = $pdo->prepare("INSERT INTO appointments (patient_id, doctor_id, date, status, message) VALUES (?, ?, NOW(), 'pending', ?)");
+    $stmt->execute([$user['id'], $_POST['doctor_id'], $_POST['message']]);
+    echo "<div class='alert alert-success text-center'>تم إرسال الاستشارة للطبيب!</div>";
+}
+
+$doctors = $pdo->query("SELECT d.id, u.name FROM doctors d JOIN users u ON d.user_id=u.id WHERE d.approved=1")->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 text-center">طلب استشارة عن بعد</h2>
+    <form method="post" class="card p-4 shadow mx-auto" style="max-width:500px">
+        <div class="mb-3">
+            <label class="form-label">اختر الطبيب</label>
+            <select name="doctor_id" class="form-select" required>
+                <option value="">اختر...</option>
+                <?php foreach($doctors as $d): ?>
+                    <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">رسالتك للطبيب</label>
+            <textarea name="message" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">إرسال الاستشارة</button>
+    </form>
+</div>
+<?php include '../includes/footer.php'; ?>
+puplic/hospitals.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT * FROM hospitals WHERE approved=1");
+$data = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">المؤسسات الاستشفائية</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($data as $hosp): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="مؤسسة استشفائية">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($hosp['name']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($hosp['city']) ?></span>
+                        <p class="text-muted mb-2"><?= htmlspecialchars($hosp['address']) ?></p>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($hosp['phone']) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($data)):?>
+            <div class="alert alert-warning text-center">لا يوجد مؤسسات استشفائية حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/imaging_labs.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT * FROM imaging_labs WHERE approved=1");
+$data = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">مخابر الأشعة</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($data as $lab): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="مخبر أشعة">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($lab['name']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($lab['city']) ?></span>
+                        <p class="text-muted mb-2"><?= htmlspecialchars($lab['address']) ?></p>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($lab['phone']) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($data)):?>
+            <div class="alert alert-warning text-center">لا يوجد مخابر أشعة حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/labs.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT * FROM labs WHERE approved=1");
+$data = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">مخابر التحليل</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($data as $lab): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://images.unsplash.com/photo-1588776814546-ec7e93c7f7b6?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="مخبر تحليل">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($lab['name']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($lab['city']) ?></span>
+                        <p class="text-muted mb-2"><?= htmlspecialchars($lab['address']) ?></p>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($lab['phone']) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($data)):?>
+            <div class="alert alert-warning text-center">لا يوجد مخابر حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/orthophonists.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT u.*, p.specialty, p.bio FROM users u 
+    JOIN professionals p ON u.id = p.user_id 
+    WHERE u.role='orthophonist' AND p.approved=1");
+
+$data = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">مختصون أرطوفوني</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($data as $pro): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="<?= $pro['avatar'] ? '../uploads/'.$pro['avatar'] : 'https://randomuser.me/api/portraits/men/' . rand(1,80) . '.jpg' ?>" class="card-img-top" alt="صورة مختص">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($pro['name']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($pro['specialty']) ?></span>
+                        <p class="text-muted mb-2"><?= htmlspecialchars($pro['bio']) ?></p>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-envelope"></i> <?= htmlspecialchars($pro['email']) ?></li>
+                            <li><i class="bi bi-geo-alt"></i> <?= htmlspecialchars($pro['address']) ?></li>
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($pro['phone']) ?></li>
+                            <li><i class="bi bi-clock"></i> <?= htmlspecialchars($pro['work_times']) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($data)):?>
+            <div class="alert alert-warning text-center">لا يوجد مختصون حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/pharmacies.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT * FROM pharmacies WHERE approved=1");
+$pharmacies = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">دليل الصيدليات المعتمدة</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($pharmacies as $ph): ?>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= htmlspecialchars($ph['name']) ?></h5>
+                        <p class="mb-1"><i class="bi bi-geo-alt text-success"></i> <?= htmlspecialchars($ph['city']) ?></p>
+                        <p class="mb-1"><?= htmlspecialchars($ph['address']) ?></p>
+                        <p class="mb-0"><i class="bi bi-telephone"></i> <?= htmlspecialchars($ph['phone']) ?></p>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($pharmacies)): ?>
+            <div class="alert alert-warning text-center mt-4">لا توجد صيدليات متاحة حاليا.</div>
+        <?php endif; ?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/physical_centers.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT u.*, p.specialty, p.bio FROM users u 
+    JOIN professionals p ON u.id = p.user_id 
+    WHERE u.role='physical_center' AND p.approved=1");
+
+$data = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">مراكز العلاج الفيزيائي</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($data as $pro): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="<?= $pro['avatar'] ? '../uploads/'.$pro['avatar'] : 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80' ?>" class="card-img-top" alt="مركز علاج فيزيائي">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($pro['name']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($pro['specialty']) ?></span>
+                        <p class="text-muted mb-2"><?= htmlspecialchars($pro['bio']) ?></p>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-envelope"></i> <?= htmlspecialchars($pro['email']) ?></li>
+                            <li><i class="bi bi-geo-alt"></i> <?= htmlspecialchars($pro['address']) ?></li>
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($pro['phone']) ?></li>
+                            <li><i class="bi bi-clock"></i> <?= htmlspecialchars($pro['work_times']) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($data)):?>
+            <div class="alert alert-warning text-center">لا يوجد مراكز حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/profile.php
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$stmt = $pdo->prepare("SELECT u.*, p.specialty, p.bio FROM users u 
+    JOIN professionals p ON u.id = p.user_id WHERE u.id=?");
+$stmt->execute([$id]);
+$pro = $stmt->fetch();
+
+if(!$pro){
+    echo "<div class='container py-5'><div class='alert alert-danger text-center'>المختص غير موجود</div></div>";
+    include '../includes/footer.php'; exit;
+}
+?>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <img src="<?= $pro['avatar'] ? '../uploads/'.$pro['avatar'] : 'https://randomuser.me/api/portraits/men/' . rand(1,80) . '.jpg' ?>" class="card-img-top" alt="صورة مختص">
+                <div class="card-body text-center">
+                    <h3 class="card-title"><?= htmlspecialchars($pro['name']) ?></h3>
+                    <span class="badge bg-success mb-2"><?= htmlspecialchars($pro['specialty']) ?></span>
+                    <p class="mb-1"><?= htmlspecialchars($pro['bio']) ?></p>
+                    <ul class="list-unstyled small">
+                        <li><i class="bi bi-envelope"></i> <?= htmlspecialchars($pro['email']) ?></li>
+                        <li><i class="bi bi-geo-alt"></i> <?= htmlspecialchars($pro['address']) ?></li>
+                        <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($pro['phone']) ?></li>
+                        <li><i class="bi bi-clock"></i> <?= htmlspecialchars($pro['work_times']) ?></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/psychologists.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+$stmt = $pdo->query("SELECT u.*, p.specialty, p.bio FROM users u 
+    JOIN professionals p ON u.id = p.user_id 
+    WHERE u.role='psychologist' AND p.approved=1");
+
+$pros = $stmt->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 fw-bold text-success text-center">المختصون النفسيون</h2>
+    <div class="row g-4 justify-content-center">
+        <?php foreach($pros as $pro): ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow border-0 h-100">
+                    <img src="<?= $pro['avatar'] ? '../uploads/'.$pro['avatar'] : 'https://randomuser.me/api/portraits/men/' . rand(1,80) . '.jpg' ?>" class="card-img-top" alt="صورة مختص">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1"><?= htmlspecialchars($pro['name']) ?></h5>
+                        <span class="badge bg-success mb-2"><?= htmlspecialchars($pro['specialty']) ?></span>
+                        <p class="text-muted mb-2"><?= htmlspecialchars($pro['bio']) ?></p>
+                        <ul class="list-unstyled small">
+                            <li><i class="bi bi-envelope"></i> <?= htmlspecialchars($pro['email']) ?></li>
+                            <li><i class="bi bi-geo-alt"></i> <?= htmlspecialchars($pro['address']) ?></li>
+                            <li><i class="bi bi-telephone"></i> <?= htmlspecialchars($pro['phone']) ?></li>
+                            <li><i class="bi bi-clock"></i> <?= htmlspecialchars($pro['work_times']) ?></li>
+                        </ul>
+                        <a href="profile.php?id=<?= $pro['id'] ?>" class="btn btn-outline-success btn-sm">عرض الملف</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if(empty($pros)):?>
+            <div class="alert alert-warning text-center">لا يوجد مختصون حالياً</div>
+        <?php endif;?>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/review.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+if(!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+if(isset($_POST['doctor_id'], $_POST['rating'], $_POST['comment'])) {
+    $stmt = $pdo->prepare("INSERT INTO reviews (doctor_id, patient_id, rating, comment) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$_POST['doctor_id'], $_SESSION['user']['id'], $_POST['rating'], $_POST['comment']]);
+    echo "<div class='alert alert-success text-center'>تم تقييم الطبيب بنجاح!</div>";
+}
+$doctors = $pdo->query("SELECT d.id, u.name FROM doctors d JOIN users u ON d.user_id=u.id WHERE d.approved=1")->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 text-center">تقييم طبيب</h2>
+    <form method="post" class="card p-4 shadow mx-auto" style="max-width:500px">
+        <div class="mb-3">
+            <label class="form-label">اختر الطبيب</label>
+            <select name="doctor_id" class="form-select" required>
+                <?php foreach($doctors as $d): ?>
+                <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">التقييم</label>
+            <select name="rating" class="form-select" required>
+                <option value="5">ممتاز</option>
+                <option value="4">جيد جدا</option>
+                <option value="3">جيد</option>
+                <option value="2">متوسط</option>
+                <option value="1">ضعيف</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">تعليقك</label>
+            <textarea name="comment" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">إرسال التقييم</button>
+    </form>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/send_prescription.php
+
+puplic/send_prescription.php
+
+<?php
+include '../config/db.php';
+include '../includes/header.php';
+
+if(!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+$user_id = $_SESSION['user']['id'];
+$msg = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // محاكاة الدفع
+    $started = date('Y-m-d H:i:s');
+    $expire = date('Y-m-d H:i:s', strtotime('+1 month'));
+    $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, status, started_at, expire_at) VALUES (?, 'active', ?, ?)");
+    $stmt->execute([$user_id, $started, $expire]);
+    $msg = "<div class='alert alert-success text-center'>تم تفعيل اشتراكك الشهري بنجاح!</div>";
+}
+?>
+<div class="container py-5">
+    <h2 class="mb-4 text-center">الاشتراك الشهري</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <?= $msg ?>
+            <div class="card p-4 shadow">
+                <h4 class="mb-3">مميزات الاشتراك:</h4>
+                <ul>
+                    <li>استشارات غير محدودة</li>
+                    <li>خصومات على بعض الخدمات</li>
+                    <li>إمكانية التشخيص عن بعد</li>
+                </ul>
+                <form method="post">
+                    <button type="submit" class="btn btn-success btn-lg w-100">ادفع الآن (محاكاة بريدي موب)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>
+
+puplic/subscribe.php
+
+و في هدا الملف لدي
+puplic/admin
+
+puplic/admin/add_doctor.php
+
+<?php
+session_start();
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+    header('Location: login.php'); exit;
+}
+include '../../config/db.php';
+
+$msg = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
+    $specialization = $_POST['specialization'];
+    $city = $_POST['city'];
+    $phone = $_POST['phone'];
+    $type = $_POST['type']; // عمومي أو خاص
+
+    $stmt = $pdo->prepare("INSERT INTO doctors (name, specialization, city, phone, type) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$name, $specialization, $city, $phone, $type]);
+    $msg = "تمت إضافة الطبيب بنجاح!";
+}
+?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8"><title>إضافة طبيب</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+</head>
+<body>
+<div class="container py-5">
+    <h2 class="mb-4">إضافة طبيب جديد</h2>
+    <?php if($msg): ?><div class="alert alert-success"><?= $msg ?></div><?php endif; ?>
+    <form method="post" class="card p-4 shadow" style="max-width:500px;">
+        <div class="mb-2">
+            <label>اسم الطبيب</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-2">
+            <label>التخصص</label>
+            <input type="text" name="specialization" class="form-control" required>
+        </div>
+        <div class="mb-2">
+            <label>المدينة</label>
+            <input type="text" name="city" class="form-control" required>
+        </div>
+        <div class="mb-2">
+            <label>رقم الهاتف</label>
+            <input type="text" name="phone" class="form-control" required>
+        </div>
+        <div class="mb-2">
+            <label>نوع الطبيب</label>
+            <select name="type" class="form-select">
+                <option value="public">عمومي</option>
+                <option value="private">خاص</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success w-100">إضافة</button>
+    </form>
+</div>
+</body>
+</html>
+
+puplic/admin/dashboard.php
+<?php
+session_start();
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+    header('Location: ../login.php'); exit;
+}
+include '../config/db.php';
+?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة تحكم الأدمن</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+    <h2 class="mb-4 text-success fw-bold text-center">لوحة تحكم الأدمن</h2>
+    <div class="row g-3 mb-5 text-center">
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM doctors")->fetchColumn() ?></span><br>الأطباء</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM pharmacies")->fetchColumn() ?></span><br>الصيادلة</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM labs")->fetchColumn() ?></span><br>مخابر التحليل</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM users WHERE role='psychologist'")->fetchColumn() ?></span><br>مختصين نفسيين</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM users WHERE role='orthophonist'")->fetchColumn() ?></span><br>مختصين أرطوفوني</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM users WHERE role='physical_center'")->fetchColumn() ?></span><br>مراكز العلاج الفيزيائي</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM ambulances")->fetchColumn() ?></span><br>سيارات الإسعاف</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM imaging_labs")->fetchColumn() ?></span><br>مخابر الأشعة</div></div></div>
+        <div class="col-md-2 col-6"><div class="card shadow-sm"><div class="card-body"><span class="fw-bold"><?= $pdo->query("SELECT COUNT(*) FROM hospitals")->fetchColumn() ?></span><br>مؤسسات استشفائية</div></div></div>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_doctors.php" class="btn btn-outline-success w-100 mb-2">إدارة الأطباء</a>
+            <a href="add_doctor.php" class="btn btn-success w-100">إضافة طبيب</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_pharmacies.php" class="btn btn-outline-success w-100 mb-2">إدارة الصيادلة</a>
+            <a href="add_pharmacy.php" class="btn btn-success w-100">إضافة صيدلية</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_labs.php" class="btn btn-outline-success w-100 mb-2">إدارة مخابر التحليل</a>
+            <a href="add_lab.php" class="btn btn-success w-100">إضافة مخبر تحليل</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_psychologists.php" class="btn btn-outline-success w-100 mb-2">إدارة المختصين النفسيين</a>
+            <a href="add_psychologist.php" class="btn btn-success w-100">إضافة مختص نفسي</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_orthophonists.php" class="btn btn-outline-success w-100 mb-2">إدارة الأرطوفوني</a>
+            <a href="add_orthophonist.php" class="btn btn-success w-100">إضافة أرطوفوني</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_physical_centers.php" class="btn btn-outline-success w-100 mb-2">إدارة مراكز العلاج الفيزيائي</a>
+            <a href="add_physical_center.php" class="btn btn-success w-100">إضافة مركز علاج فيزيائي</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_ambulances.php" class="btn btn-outline-success w-100 mb-2">إدارة سيارات الإسعاف</a>
+            <a href="add_ambulance.php" class="btn btn-success w-100">إضافة سيارة إسعاف</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_imaging_labs.php" class="btn btn-outline-success w-100 mb-2">إدارة مخابر الأشعة</a>
+            <a href="add_imaging_lab.php" class="btn btn-success w-100">إضافة مخبر أشعة</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_hospitals.php" class="btn btn-outline-success w-100 mb-2">إدارة المؤسسات الاستشفائية</a>
+            <a href="add_hospital.php" class="btn btn-success w-100">إضافة مؤسسة استشفائية</a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="manage_appointments.php" class="btn btn-outline-primary w-100 mb-2">مراقبة الحجوزات</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+puplic/admin/doctors.php
+<?php
+include '../../config/db.php';
+include '../../includes/header.php';
+
+if(!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
+    header('Location: ../login.php');
+    exit;
+}
+if(isset($_GET['approve'])) {
+    $stmt = $pdo->prepare("UPDATE doctors SET approved=1 WHERE id=?");
+    $stmt->execute([$_GET['approve']]);
+}
+
+$doctors = $pdo->query("SELECT d.*, u.name, u.email FROM doctors d JOIN users u ON d.user_id=u.id")->fetchAll();
+?>
+<div class="container py-5">
+    <h2 class="mb-4 text-success">إدارة الأطباء</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>الاسم</th>
+                <th>البريد</th>
+                <th>التخصص</th>
+                <th>المدينة</th>
+                <th>الحالة</th>
+                <th>إجراء</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($doctors as $d): ?>
+                <tr>
+                    <td><?= htmlspecialchars($d['name']) ?></td>
+                    <td><?= htmlspecialchars($d['email']) ?></td>
+                    <td><?= htmlspecialchars($d['specialization']) ?></td>
+                    <td><?= htmlspecialchars($d['city']) ?></td>
+                    <td><?= $d['approved'] ? '<span class="text-success">مفعل</span>' : '<span class="text-danger">معلق</span>' ?></td>
+                    <td>
+                        <?php if(!$d['approved']): ?>
+                            <a href="?approve=<?= $d['id'] ?>" class="btn btn-sm btn-success">تفعيل</a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php include '../../includes/footer.php'; ?>
+
+puplic/admin/login.php
+
+<?php
+session_start();
+include '../../config/db.php';
+
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=? AND role='admin' LIMIT 1");
+    $stmt->execute([$email]);
+    $admin = $stmt->fetch();
+    if ($admin) {
+        // يقبل كلمة مرور مشفرة أو نص عادي
+        if ((isset($admin['password']) && password_verify($password, $admin['password'])) || $password === $admin['password']) {
+            $_SESSION['user'] = $admin;
+            header('Location: dashboard.php'); exit;
+        }
+    }
+    $error = "البريد الإلكتروني أو كلمة المرور غير صحيحة أو ليس لديك صلاحية الأدمن.";
+}
+?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>دخول المسؤول</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card p-4 mt-5" style="max-width:400px;margin:auto;">
+            <h3 class="mb-4 text-center text-success">دخول المسؤول</h3>
+            <?php if($error): ?>
+                <div class="alert alert-danger text-center"><?= $error ?></div>
+            <?php endif; ?>
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">البريد الإلكتروني</label>
+                    <input type="email" name="email" class="form-control" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">كلمة المرور</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">دخول</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+و في هذا الملف لذي
+
+includes
+includes/footer.php
+<footer class="bg-light text-center py-3 mt-5">
+    <p>© <?=date('Y')?> منصة صحتي - صحتك أولاً</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+includes/functions.php
+<?php
+function is_logged_in() {
+    return !empty($_SESSION['user']);
+}
+
+function is_admin() {
+    return isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin';
+}
+?>
+
+includes/header.php
+
+<?php if(session_status() == PHP_SESSION_NONE) session_start(); ?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>منصة صحتي | صحتك أولاً</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container">
+    <a class="navbar-brand" href="index.php">صحتي</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="doctors.php">الأطباء</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.php">تسجيل</a></li>
+        <?php if(!empty($_SESSION['user'])): ?>
+            <li class="nav-item"><a class="nav-link" href="dashboard.php">لوحة التحكم</a></li>
+            <li class="nav-item"><a class="nav-link" href="logout.php">خروج</a></li>
+        <?php else: ?>
+            <li class="nav-item"><a class="nav-link" href="login.php">دخول</a></li>
+        <?php endif; ?>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+و في هدا الملف puplic/assets 
+لدي 
+puplic/assets/css/style.css
+body { font-family: 'Cairo', 'Tajawal', Arial, sans-serif; background: #f7f7f7; }
+.card { border-radius: 18px; }
+.card-img-top { height: 220px; object-fit: cover; }
+.btn-success, .bg-success { background: linear-gradient(90deg,#43e97b 0,#38f9d7 100%)!important; border: none;}
+h2, h3, .fw-bold { font-weight: bold !important; }
+
+و في هدا الملف config لدي
+config/db.php
+
+<?php
+$host = 'localhost';
+$db   = 'medical_platform';
+$user = 'root';
+$pass = '';
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+try {
+     $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+     throw new \PDOException($e->getMessage(), (int)$e->getCode());
+}
+?>
+
+
+هدا مشروعي كامل الان اريد تحسني جد اخترافي احترافي و نزع اي صفحة مكررة او لا استمعلها و اريد الاتي
+
+اريد عندما يدحل اي شخص عاذي يمكنه تصفح الموقع و اخذ اي خدمة و يجد اطباء  وسيارات اسعاف و مخابر و مراكز و مختصين اي كل التخصصيات متوفرين و يمكنه اخذ موعد مع امكانية الاشتراك مسبقا مع طريق الدفع بريدي موب افتراضية
+و يمكنه كذلك رؤية نسبة تخفيضاات و كذلك اريذ الادمن هو من يضيف كل التخصصات من اكباء و سيارات و مراكز مع لوحة تحكم اخترافية بواجهة اخترافية و يمكنه كذلك تسير الحجوزات و الاشتراكات والخ
+و اريد كذلك كل شخص عاذي يسحل بحسابه يمكنه التواصل مع طبيبه مباشرة خيث يمكن التشخيص عن بعذ و ارسال وصفة طبية عن بعد عاذي 
+ و العديد من الميوات 

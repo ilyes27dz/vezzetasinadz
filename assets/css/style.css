@@ -1,0 +1,59 @@
+body { font-family: 'Cairo', Arial, sans-serif; background: #f7f7f7; }
+.hero-section { min-height: 80vh; display:flex; align-items:center; background: linear-gradient(120deg,#e3fff7 0,#f8f8ff 100%);}
+.btn-main, .btn-success {
+    background: linear-gradient(90deg,#14b98a 0,#38f9d7 100%)!important;
+    color:#fff; border-radius:2rem; font-weight:700; border:none;
+    box-shadow: 0 4px 24px #38f9d733;
+    transition: .2s;
+}
+.btn-main:hover, .btn-success:hover { background: linear-gradient(90deg,#38f9d7 0,#14b98a 100%)!important; }
+.service-card:hover, .stat-card:hover {
+    box-shadow: 0 2px 18px #14b98a22 !important;
+    transform: translateY(-5px) scale(1.03);
+    transition: .2s;
+}
+.service-card, .stat-card {
+    background: #fff; border-radius: 1.5rem; min-height: 170px; transition: .2s;
+}
+.stat-card .fs-2 { filter: drop-shadow(0 2px 8px #14b98a33); }
+.cta-section { background: linear-gradient(90deg,#14b98a 0,#38f9d7 100%)!important; color:#fff; }
+.cta-section .btn { border-radius:2rem; }
+.bg-light { background: #f5faff !important; }
+.navbar {transition: box-shadow .2s;}
+.navbar.scrolled {box-shadow:0 4px 24px #14b98a22;}
+/* تحسينات إضافية */
+::-webkit-scrollbar-thumb {background: #14b98a;}
+::-webkit-scrollbar {background: #e3fff7;}
+
+.card-hover { transition: box-shadow .2s; }
+.card-hover:hover { box-shadow:0 0 20px #8882; }
+
+/* ... باقي التنسيقات ... */
+.admin-sidebar {
+  background: #222b3c;
+  color: #fff;
+  min-height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 220px;
+  z-index: 100;
+}
+.admin-sidebar .nav-link {
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.admin-sidebar .nav-link.active, .admin-sidebar .nav-link:hover {
+  background: #f7bc50;
+  color: #222;
+}
+@media (max-width: 991px) {
+  .admin-sidebar {position:static;width:100%;}
+  main {margin:0;}
+}
+body.admin-panel { background: #f7f7f7; }
+main.admin-content { margin-right: 230px; padding: 32px 24px; min-height: 100vh; }
+@media (max-width: 991px) {
+  main.admin-content { margin: 0; padding: 20px 5px;}
+}

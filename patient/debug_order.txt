@@ -1,0 +1,9 @@
+Array
+(
+    [pharmacy_id] => 1
+    [drug_name] => RAPIDUS
+    [email] => ilyes.negh@gmail.com
+    [phone] => 0655282828
+    [delivery] => pickup
+    [notes] => 
+)
