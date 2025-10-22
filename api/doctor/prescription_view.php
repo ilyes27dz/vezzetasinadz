@@ -4,7 +4,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'doctor') {
     header("Location: ../auth/login.php");
     exit;
 }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 $id = intval($_GET['id'] ?? 0);
 

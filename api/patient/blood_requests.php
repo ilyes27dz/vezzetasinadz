@@ -3,7 +3,8 @@ session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
     header("Location: ../auth/login.php"); exit;
 }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 // جلب كل الزمر والولايات للفلترة
 $wilayas = $pdo->query("SELECT DISTINCT city FROM blood_requests WHERE is_active=1 ORDER BY city ASC")->fetchAll(PDO::FETCH_COLUMN);

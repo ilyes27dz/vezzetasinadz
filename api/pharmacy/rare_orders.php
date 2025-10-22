@@ -3,7 +3,8 @@ session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'pharmacy') {
     header("Location: ../auth/login.php"); exit;
 }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 $pharmacy_id = $_SESSION['pharmacy_id'];
 
 // تغيير حالة الطلب

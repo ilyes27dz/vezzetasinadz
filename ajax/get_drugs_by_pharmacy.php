@@ -1,5 +1,6 @@
 <?php
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 $pharmacy_id = intval($_GET['pharmacy_id']);
 $stmt = $pdo->prepare("SELECT name, price FROM pharmacy_drugs WHERE pharmacy_id=? ORDER BY name");
 $stmt->execute([$pharmacy_id]);

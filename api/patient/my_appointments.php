@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') { header("Location: ../auth/login.php"); exit; }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 $apps = $pdo->prepare("SELECT a.*, u.name as doctor_name FROM appointments a JOIN doctors d ON a.doctor_id=d.id JOIN users u ON d.user_id=u.id WHERE a.patient_id=? ORDER BY a.date DESC");
 $apps->execute([$_SESSION['user_id']]);
 $apps = $apps->fetchAll();

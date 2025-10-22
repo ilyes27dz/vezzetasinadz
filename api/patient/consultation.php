@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') { header("Location: ../auth/login.php"); exit; }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 // تحقق من الاشتراك وعدد الاستشارات المتبقية
 $stmt = $pdo->prepare("SELECT * FROM subscriptions WHERE user_id=? AND status='active' AND start_date<=CURDATE() AND end_date>=CURDATE() ORDER BY id DESC LIMIT 1");

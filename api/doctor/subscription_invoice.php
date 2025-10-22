@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'doctor') { header("Location: ../auth/login.php"); exit; }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $stmt = $pdo->prepare("SELECT s.*, u.name as doctor_name, u.email, u.phone FROM subscriptions s JOIN users u ON s.user_id=u.id WHERE s.id=? AND s.user_id=? LIMIT 1");

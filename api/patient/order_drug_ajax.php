@@ -4,7 +4,8 @@ error_reporting(E_ALL);
 
 session_start();
 header('Content-Type: application/json');
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 $pharmacy_id = intval($_POST['pharmacy_id']);
 $drug_name = trim($_POST['drug_name']);

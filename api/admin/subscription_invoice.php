@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') exit;
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 $id = intval($_GET['id'] ?? 0);
 $stmt = $pdo->prepare("SELECT s.*, u.name, u.role, u.email, u.phone FROM subscriptions s JOIN users u ON s.user_id=u.id WHERE s.id=?");
 $stmt->execute([$id]);

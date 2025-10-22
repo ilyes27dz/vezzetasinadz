@@ -3,7 +3,8 @@ session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
     header("Location: ../auth/login.php"); exit;
 }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 $stmt = $pdo->prepare("SELECT m.*, u.name AS doctor_name FROM messages m 
     JOIN users u ON m.sender_id=u.id 
     WHERE m.receiver_id=? AND m.sender_id!=? 

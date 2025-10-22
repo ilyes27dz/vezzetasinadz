@@ -4,7 +4,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
     header("Location: ../auth/login.php"); 
     exit; 
 }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 // جلب قائمة الصيدليات
 $pharmacies = $pdo->query("SELECT * FROM services WHERE type='pharmacy' ORDER BY name")->fetchAll();

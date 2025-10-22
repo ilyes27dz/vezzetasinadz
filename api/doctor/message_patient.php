@@ -1,5 +1,6 @@
 <?php
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 session_start();
 if(!isset($_SESSION['user_id']) || $_SESSION['role']!=='doctor' || !isset($_GET['id'])){header("Location: ../auth/login.php");exit;}
 $patient_id = intval($_GET['id']);

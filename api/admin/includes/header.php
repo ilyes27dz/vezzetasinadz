@@ -2,7 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 if (!isset($notif_count)) {
     // جلب عدد الإشعارات غير المقروءة + آخر 7 إشعارات
-    require_once '../db.php';
+    require_once __DIR__ . '/../db.php'
+;
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0");
     $stmt->execute([$_SESSION['user_id'] ?? 0]);
     $notif_count = $stmt->fetchColumn();

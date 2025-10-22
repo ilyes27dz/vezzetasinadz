@@ -4,7 +4,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'pharmacy') {
     header("Location: ../auth/login.php"); exit;
 }
 $pharmacy_id = $_SESSION['pharmacy_id'];
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 // جلب الموزعين من قاعدة البيانات
 $distributors = $pdo->query("SELECT * FROM distributors ORDER BY city, name")->fetchAll(PDO::FETCH_ASSOC);

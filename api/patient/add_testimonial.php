@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once '../db.php'; // التصحيح هنا
+require_once __DIR__ . '/../db.php'
+; // التصحيح هنا
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
     header("Location: ../auth/login.php"); exit;
 }

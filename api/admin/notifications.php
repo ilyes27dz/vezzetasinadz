@@ -3,7 +3,8 @@ session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../auth/login.php"); exit;
 }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 // عند الدخول: اجعل كل الإشعارات كمقروءة
 $pdo->prepare("UPDATE notifications SET is_read=1 WHERE user_id=?")->execute([$_SESSION['user_id']]);
 $notifs = $pdo->prepare("SELECT * FROM notifications WHERE user_id=? ORDER BY created_at DESC LIMIT 50");

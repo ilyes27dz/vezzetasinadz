@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'doctor') { header("Location: ../auth/login.php"); exit; }
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 $error = '';
 $success = '';
 $stmt = $pdo->prepare("SELECT u.*, d.* FROM users u JOIN doctors d ON u.id=d.user_id WHERE u.id=?");

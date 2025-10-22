@@ -1,5 +1,6 @@
 <?php
-require_once '../db.php'; // عدّل المسار حسب مكان الملف ومشروعك
+require_once __DIR__ . '/../db.php'
+; // عدّل المسار حسب مكان الملف ومشروعك
 
 // جلب كل الوصفات التي تم تفعيل التجديد التلقائي لها ومر عليها 3 شهور أو أكثر
 $sql = "SELECT * FROM prescriptions WHERE auto_renew=1 

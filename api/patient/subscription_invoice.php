@@ -2,7 +2,8 @@
 session_start();
 $is_admin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 if (!isset($_SESSION['user_id']) || (!($is_admin || $_SESSION['role'] === 'patient'))) exit;
-require_once '../db.php';
+require_once __DIR__ . '/../db.php'
+;
 
 $id = intval($_GET['id'] ?? 0);
 if ($is_admin) {
