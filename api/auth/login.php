@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../db.php'
-;
+require_once __DIR__ . '/../db.php';
+
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -9,36 +9,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email=?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
+    
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
 
-        // لو المستخدم صيدلية، خزّن pharmacy_id من جدول المستخدمين
+        // توجيه حسب الدور
         if ($user['role'] == 'pharmacy') {
-            $_SESSION['pharmacy_id'] = $user['pharmacy_id']; // تأكد أن لديك هذا الحقل في جدول users
+            $_SESSION['pharmacy_id'] = $user['pharmacy_id'];
             header("Location: ../pharmacy/dashboard.php");
+            exit;
         }
-
-        
         elseif ($user['role'] == 'admin') {
             header("Location: ../admin/dashboard.php");
+            exit;
         }
         elseif ($user['role'] == 'doctor') {
             header("Location: ../doctor/index.php");
+            exit;
         }
         elseif ($user['role'] == 'patient') {
             header("Location: ../patient/index.php");
+            exit;
         }
         else {
             header("Location: ../index.php");
+            exit;
         }
-        exit;
     } else {
         $error = "بيانات الدخول غير صحيحة!";
     }
 }
+
+include __DIR__ . '/../../includes/header.php';
 ?>
-<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-md-5">
@@ -63,4 +67,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </div>
 </div>
-<?php include __DIR__ . '/../../includes/footer.php'	; ?>
+<?php include __DIR__ . '/../../includes/footer.php'; ?>
