@@ -1,5 +1,6 @@
 <?php
-require_once 'db.php';
+require_once __DIR__ . '/db.php';
+
 $success = '';
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $name = trim($_POST['name']);
@@ -13,13 +14,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $_POST = [];
     }
 }
+
 include __DIR__ . '/../includes/header.php';
 ?>
 <div class="container py-5">
     <!-- زر العودة -->
     <div class="mb-4">
-        <a href="index.php" class="btn btn-outline-secondary me-2 mb-2"><i class="bi bi-arrow-right"></i> العودة للرئيسية</a>
-        <a href="services/list.php?type=doctor" class="btn btn-outline-success me-2 mb-2">كل الخدمات</a>
+        <a href="/index.php" class="btn btn-outline-secondary me-2 mb-2"><i class="bi bi-arrow-right"></i> العودة للرئيسية</a>
+        <a href="/services/list.php?type=doctor" class="btn btn-outline-success me-2 mb-2">كل الخدمات</a>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-7">
@@ -49,4 +51,4 @@ include __DIR__ . '/../includes/header.php';
         </div>
     </div>
 </div>
-<?php include 'includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

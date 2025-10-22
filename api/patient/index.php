@@ -1,16 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
-    header("Location: ../auth/login.php"); exit;
+    header("Location: ../auth/login.php"); 
+    exit;
 }
-require_once __DIR__ . '/../db.php'
-;
+require_once __DIR__ . '/../db.php';
 
 // إشعارات المستخدم
 $notif_count = 0;
 if (isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=FALSE
-");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=FALSE");
     $stmt->execute([$_SESSION['user_id']]);
     $notif_count = $stmt->fetchColumn();
 }
@@ -34,7 +33,7 @@ $stmt = $pdo->prepare("SELECT * FROM drug_orders WHERE patient_id=? ORDER BY cre
 $stmt->execute([$_SESSION['user_id']]);
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// جلب الأدوية النادرة (لعرضها في كارت منفصل)
+// جلب الأدوية النادرة
 $rare_drugs_count = $pdo->query("SELECT COUNT(*) FROM rare_drugs")->fetchColumn();
 
 // دالة شارات حالات المواعيد
@@ -52,7 +51,9 @@ function get_status_badge($status) {
     return '<span class="badge bg-light text-dark">'.htmlspecialchars($status).'</span>';
 }
 ?>
-<?php include __DIR__ . '/../../includes/header.php'	; ?>
+<?php include __DIR__ . '/../../includes/header.php'; ?>
+<!-- باقي HTML كما هو... -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -418,4 +419,5 @@ body {background: #f7fcff;}
         </div>
     </div>
 </div>
-<?php include __DIR__ . '/../../includes/footer.php'	; ?>
+<?php include __DIR__ . '/../../includes/footer.php';
+	; ?>
