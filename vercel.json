@@ -3,27 +3,6 @@
   "functions": {
     "api/**/*.php": {
       "runtime": "vercel-php@0.7.4"
-    },
-    "auth/**/*.php": {
-      "runtime": "vercel-php@0.7.4"
-    },
-    "admin/**/*.php": {
-      "runtime": "vercel-php@0.7.4"
-    },
-    "doctor/**/*.php": {
-      "runtime": "vercel-php@0.7.4"
-    },
-    "patient/**/*.php": {
-      "runtime": "vercel-php@0.7.4"
-    },
-    "pharmacy/**/*.php": {
-      "runtime": "vercel-php@0.7.4"
-    },
-    "services/**/*.php": {
-      "runtime": "vercel-php@0.7.4"
-    },
-    "*.php": {
-      "runtime": "vercel-php@0.7.4"
     }
   },
   "routes": [
@@ -33,6 +12,13 @@
     { "src": "^/js/(.*)", "dest": "/js/$1" },
     { "src": "^/ads/(.*)", "dest": "/ads/$1" },
     { "src": "^/uploads/(.*)", "dest": "/uploads/$1" },
-    { "src": "^/(.*\\.php)$", "dest": "/$1" }
+    { "src": "^/auth/(.*)", "dest": "/api/auth/$1" },
+    { "src": "^/admin/(.*)", "dest": "/api/admin/$1" },
+    { "src": "^/doctor/(.*)", "dest": "/api/doctor/$1" },
+    { "src": "^/patient/(.*)", "dest": "/api/patient/$1" },
+    { "src": "^/pharmacy/(.*)", "dest": "/api/pharmacy/$1" },
+    { "src": "^/services/(.*)", "dest": "/api/services/$1" },
+    { "src": "^/(contact|blood_donors|blood_donor_add|blood_request_add|drug_search|add_testimonial)\\.php$", "dest": "/api/$1.php" },
+    { "src": "^/(.*)$", "dest": "/api/index.php" }
   ]
 }
