@@ -8,9 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/ayloul_project/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <!-- أيقونة الموقع -->
-    <link rel="icon" type="image/png" href="assets/img/LOGO.svg">
+    <link rel="icon" type="image/png" href="/assets/img/LOGO.svg">
     <style>
         body { font-family: 'Cairo', Arial, sans-serif; }
         .navbar .dropdown-menu { max-height: 400px; overflow-y: auto; z-index: 9999; }
@@ -28,8 +28,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top py-3 shadow-sm">
   <div class="container">
-    <a class="navbar-brand text-success fw-bold d-flex align-items-center" href="/ayloul_project/index.php">
-      <img src="/ayloul_project/assets/img/LOGO.svg" alt="شعار فيزيتا" class="navbar-brand-logo">
+    <a class="navbar-brand text-success fw-bold d-flex align-items-center" href="/">
+      <img src="/assets/img/LOGO.svg" alt="شعار فيزيتا" class="navbar-brand-logo">
       <span>فيزيتا سينا ديزاد</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -39,46 +39,53 @@
       <ul class="navbar-nav mb-2 mb-lg-0 gap-2 align-items-center">
         <?php
           if (session_status() === PHP_SESSION_NONE) session_start();
-          require_once __DIR__ . '/../db.php';
+          
+          // تحميل db.php فقط إذا لم يكن محمّلاً
+          if (!isset($pdo)) {
+              require_once __DIR__ . '/../api/db.php';
+          }
+          
           $role = $_SESSION['role'] ?? '';
           if ($role !== 'patient' && $role !== 'doctor' && $role !== 'pharmacy'){
         ?>
-          <li class="nav-item"><a class="nav-link" href="/ayloul_project/index.php">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="/">الرئيسية</a></li>
         <?php
           }
-          // جرس الإشعارات (تأكد أن ملف notifications_menu.php محدث كما أرسلته لك)
+          // جرس الإشعارات
           if (isset($_SESSION['user_id'])) {
-            include __DIR__ . '/../functions/notifications_menu.php';
+            if (file_exists(__DIR__ . '/../functions/notifications_menu.php')) {
+                include __DIR__ . '/../functions/notifications_menu.php';
+            }
           }
           if (!isset($_SESSION['user_id'])):
         ?>
-            <li class="nav-item"><a class="nav-link" href="/ayloul_project/auth/login.php">تسجيل الدخول</a></li>
-            <li class="nav-item"><a class="nav-link" href="/ayloul_project/auth/register.php">تسجيل جديد</a></li>
+            <li class="nav-item"><a class="nav-link" href="/auth/login.php">تسجيل الدخول</a></li>
+            <li class="nav-item"><a class="nav-link" href="/auth/register.php">تسجيل جديد</a></li>
         <?php
           else:
             if ($role == 'admin'):
         ?>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/admin/dashboard.php">لوحة الإدارة</a></li>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/admin/profile.php">الملف الشخصي</a></li>
-              <li class="nav-item"><a class="nav-link text-danger" href="/ayloul_project/admin/logout.php">تسجيل الخروج</a></li>
+              <li class="nav-item"><a class="nav-link" href="/admin/dashboard.php">لوحة الإدارة</a></li>
+              <li class="nav-item"><a class="nav-link" href="/admin/profile.php">الملف الشخصي</a></li>
+              <li class="nav-item"><a class="nav-link text-danger" href="/admin/logout.php">تسجيل الخروج</a></li>
         <?php
             elseif ($role == 'pharmacy'):
         ?>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/pharmacy/dashboard.php">لوحة الصيدلية</a></li>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/pharmacy/profile.php">الملف الشخصي</a></li>
-              <li class="nav-item"><a class="nav-link text-danger" href="/ayloul_project/pharmacy/logout.php">تسجيل الخروج</a></li>
+              <li class="nav-item"><a class="nav-link" href="/pharmacy/dashboard.php">لوحة الصيدلية</a></li>
+              <li class="nav-item"><a class="nav-link" href="/pharmacy/profile.php">الملف الشخصي</a></li>
+              <li class="nav-item"><a class="nav-link text-danger" href="/pharmacy/logout.php">تسجيل الخروج</a></li>
         <?php
             elseif ($role == 'doctor'):
         ?>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/doctor/index.php">لوحة الطبيب</a></li>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/doctor/profile.php">الملف الشخصي</a></li>
-              <li class="nav-item"><a class="nav-link text-danger" href="/ayloul_project/pharmacy/logout.php">تسجيل الخروج</a></li>
+              <li class="nav-item"><a class="nav-link" href="/doctor/index.php">لوحة الطبيب</a></li>
+              <li class="nav-item"><a class="nav-link" href="/doctor/profile.php">الملف الشخصي</a></li>
+              <li class="nav-item"><a class="nav-link text-danger" href="/doctor/logout.php">تسجيل الخروج</a></li>
         <?php
             elseif ($role == 'patient'):
         ?>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/patient/index.php">لوحة المريض</a></li>
-              <li class="nav-item"><a class="nav-link" href="/ayloul_project/patient/profile.php">الملف الشخصي</a></li>
-              <li class="nav-item"><a class="nav-link text-danger" href="/ayloul_project/pharmacy/logout.php">تسجيل الخروج</a></li>
+              <li class="nav-item"><a class="nav-link" href="/patient/index.php">لوحة المريض</a></li>
+              <li class="nav-item"><a class="nav-link" href="/patient/profile.php">الملف الشخصي</a></li>
+              <li class="nav-item"><a class="nav-link text-danger" href="/patient/logout.php">تسجيل الخروج</a></li>
         <?php
             endif;
           endif;
@@ -88,7 +95,5 @@
   </div>
 </nav>
 <div style="height:72px"></div>
-<!-- Bootstrap JS: لا تكرر هذا السطر في أي مكان آخر -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
