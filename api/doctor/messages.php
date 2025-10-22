@@ -24,7 +24,7 @@ $stmt = $pdo->prepare(
 $stmt->execute([$doctor_id]);
 $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <h3 class="mb-4 text-success">استشارات ورسائل المرضى</h3>
     <table class="table table-bordered">
@@ -53,4 +53,4 @@ $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

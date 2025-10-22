@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editService'])) {
     $srv = $stmt->fetch();
 }
 
-include 'includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 <div class="container py-4">
   <div class="row justify-content-center">

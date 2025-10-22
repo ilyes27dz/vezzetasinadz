@@ -21,7 +21,7 @@ $stmt = $pdo->prepare("SELECT id, name, email FROM users WHERE role = 'patient'"
 $stmt->execute();
 $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <h3 class="mb-4 text-success"><i class="bi bi-person-lines-fill"></i> ملفات المرضى</h3>
     <div class="row g-4">
@@ -54,4 +54,4 @@ $patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

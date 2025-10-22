@@ -17,7 +17,7 @@ foreach ($files as $file) {
         $content = str_replace("require_once __DIR__ . '/../db.php'
 ", "require_once __DIR__ . '/../db.php'", $content);
         $content = str_replace("require_once 'db.php'", "require_once __DIR__ . '/db.php'", $content);
-        $content = str_replace("include 'includes/header.php'", "include __DIR__ . '/../../includes/header.php'", $content);
+        $content = str_replace("include __DIR__ . '/../includes/header.php'", "include __DIR__ . '/../../includes/header.php'", $content);
         $content = str_replace("include 'includes/footer.php'", "include __DIR__ . '/../../includes/footer.php'", $content);
         
         // تصحيح Boolean

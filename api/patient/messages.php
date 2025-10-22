@@ -12,7 +12,7 @@ $stmt = $pdo->prepare("SELECT m.*, u.name AS doctor_name FROM messages m
 $stmt->execute([$_SESSION['user_id'], $_SESSION['user_id']]);
 $doctor_messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <style>
 .page-title { color: #007b83; font-weight: bold; margin-bottom: 30px; }
@@ -58,4 +58,4 @@ $doctor_messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

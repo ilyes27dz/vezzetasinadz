@@ -18,7 +18,7 @@ if (!$pres) {
     exit;
 }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-4">
     <a href="prescriptions.php" class="btn btn-light mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <div class="card shadow p-4 position-relative">
@@ -57,4 +57,4 @@ if (!$pres) {
         </ul>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

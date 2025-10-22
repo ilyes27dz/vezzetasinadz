@@ -11,7 +11,7 @@ $rare_drugs = $pdo->query(
      ORDER BY r.added_at DESC"
 )->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="index.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <a href="request_rare_drug.php" class="btn btn-danger mb-3"><i class="bi bi-bag-plus"></i> طلب دواء نادر</a>
@@ -56,4 +56,4 @@ $rare_drugs = $pdo->query(
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

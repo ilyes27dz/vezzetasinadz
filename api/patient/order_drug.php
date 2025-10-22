@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="index.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <div class="card p-4 shadow mb-4">
@@ -160,4 +160,4 @@ document.querySelectorAll('input[name="delivery"]').forEach(el => el.addEventLis
     document.getElementById('final_price').innerText = price ? (total + ' دج') : 'يرجى اختيار دواء من القائمة';
 }));
 </script>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

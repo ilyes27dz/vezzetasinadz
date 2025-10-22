@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         $success = "يرجى ملء جميع الحقول المطلوبة.";
     }
 }
-include 'includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 <div class="container py-5">
     <div class="mb-4">

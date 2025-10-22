@@ -33,7 +33,7 @@ $stmt = $pdo->prepare("SELECT * FROM messages WHERE doctor_id = ? AND patient_id
 $stmt->execute([$doctor_id, $patient_id]);
 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="patients.php" class="btn btn-light mb-3"><i class="bi bi-arrow-right"></i> رجوع لملفات المرضى</a>
     <h3 class="mb-4 text-info"><i class="bi bi-chat-dots"></i> تواصل مع <?= htmlspecialchars($patient_name) ?></h3>
@@ -54,4 +54,4 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endif; ?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

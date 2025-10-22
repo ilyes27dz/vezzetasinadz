@@ -29,7 +29,7 @@ function get_status_badge($status) {
     return '<span class="badge status-badge other">'.htmlspecialchars($status).'</span>';
 }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <style>
 .page-title {
@@ -129,4 +129,4 @@ function get_status_badge($status) {
         </table>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

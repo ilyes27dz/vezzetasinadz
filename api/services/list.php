@@ -31,7 +31,7 @@ if ($type == "doctor") {
     $stmt->execute([$type]);
     $rows = $stmt->fetchAll();
 }
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 ?>
 <div class="container py-5">
   <!-- زر العودة -->
@@ -90,4 +90,4 @@ include '../includes/header.php';
     <?php endif;?>
   </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

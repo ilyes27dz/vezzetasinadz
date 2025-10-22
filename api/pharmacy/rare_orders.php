@@ -51,7 +51,7 @@ $statusStyles = [
     'مرفوض'        => ['class'=>'danger','icon'=>'bi-x-circle'],
 ];
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <h3 class="mb-4 text-danger"><i class="bi bi-exclamation-circle"></i> طلبات الأدوية النادرة</h3>
     <div class="card p-3">
@@ -118,4 +118,4 @@ $statusStyles = [
         </table>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

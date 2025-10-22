@@ -15,7 +15,7 @@ $consultCount = $pdo->query("SELECT COUNT(*) FROM consultations WHERE doctor_id 
 $pendingAppts = $pdo->query("SELECT COUNT(*) FROM appointments WHERE doctor_id = $doctor_id AND status = 'pending'")->fetchColumn();
 $prescCount = $pdo->query("SELECT COUNT(*) FROM prescriptions WHERE doctor_id = $doctor_id")->fetchColumn();
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="text-success"><i class="bi bi-hospital"></i> لوحة تحكم الطبيب</h2>
@@ -97,4 +97,4 @@ $prescCount = $pdo->query("SELECT COUNT(*) FROM prescriptions WHERE doctor_id = 
     transform: scale(1.03);
 }
 </style>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

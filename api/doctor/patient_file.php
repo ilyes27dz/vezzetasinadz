@@ -17,7 +17,7 @@ $stmt = $pdo->prepare("SELECT * FROM prescriptions WHERE patient_id = ? ORDER BY
 $stmt->execute([$patient_id]);
 $prescs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="patients.php" class="btn btn-light mb-3"><i class="bi bi-arrow-right"></i> رجوع لملفات المرضى</a>
     <div class="card shadow-lg mb-4">
@@ -85,4 +85,4 @@ $prescs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

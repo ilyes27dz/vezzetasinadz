@@ -10,7 +10,7 @@ $pdo->prepare("UPDATE notifications SET is_read=1 WHERE user_id=?")->execute([$_
 $notifs = $pdo->prepare("SELECT * FROM notifications WHERE user_id=? ORDER BY created_at DESC LIMIT 50");
 $notifs->execute([$_SESSION['user_id']]);
 $notifs = $notifs->fetchAll();
-include 'includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 <div class="container-fluid">
   <div class="row">

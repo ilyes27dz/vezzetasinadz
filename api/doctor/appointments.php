@@ -91,7 +91,7 @@ $stmt = $pdo->prepare("SELECT a.*, u.name AS patient_name, u.email AS patient_em
 $stmt->execute([$doctor_id]);
 $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="index.php" class="btn btn-light mb-3"><i class="bi bi-arrow-right"></i> رجوع للواجهة</a>
     <h3 class="mb-4 text-success"><i class="bi bi-calendar2-week"></i> إدارة المواعيد</h3>
@@ -185,4 +185,4 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

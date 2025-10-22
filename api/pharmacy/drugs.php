@@ -43,7 +43,7 @@ $stmt = $pdo->prepare("SELECT * FROM pharmacy_drugs WHERE pharmacy_id=? ORDER BY
 $stmt->execute([$pharmacy_id]);
 $drugs = $stmt->fetchAll();
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0 text-success"><i class="bi bi-capsule"></i> إدارة أدوية الصيدلية</h3>
@@ -115,4 +115,4 @@ $drugs = $stmt->fetchAll();
         </table>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

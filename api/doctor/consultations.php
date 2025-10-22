@@ -41,7 +41,7 @@ $stmt = $pdo->prepare("SELECT c.*, u.name AS patient_name FROM consultations c J
 $stmt->execute([$doctor_id]);
 $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="index.php" class="btn btn-light mb-3"><i class="bi bi-arrow-right"></i> رجوع للواجهة</a>
     <h3 class="mb-4 text-success">الاستشارات والردود</h3>
@@ -83,4 +83,4 @@ $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

@@ -7,7 +7,7 @@ $apps = $pdo->prepare("SELECT a.*, u.name as doctor_name FROM appointments a JOI
 $apps->execute([$_SESSION['user_id']]);
 $apps = $apps->fetchAll();
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <h3 class="mb-4 text-success">حجوزاتي</h3>
     <table class="table">
@@ -35,4 +35,4 @@ $apps = $apps->fetchAll();
         </tbody>
     </table>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

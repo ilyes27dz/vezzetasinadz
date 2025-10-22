@@ -294,7 +294,7 @@ puplic/index.php
 puplic/register.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -377,7 +377,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit" class="btn btn-success w-100">تسجيل</button>
     </form>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/logout.php
 <?php
@@ -390,7 +390,7 @@ exit;
 puplic/doctors.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT d.*, u.name FROM doctors d JOIN users u ON d.user_id = u.id WHERE d.approved=1");
 $doctors = $stmt->fetchAll();
@@ -418,12 +418,12 @@ $doctors = $stmt->fetchAll();
         <?php endif; ?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/manage_doctors.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
     header('Location: ../login.php'); exit;
@@ -460,16 +460,16 @@ $doctors = $pdo->query("SELECT * FROM doctors")->fetchAll();
         </tbody>
     </table>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/book.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 if (!isset($_GET['type'], $_GET['id'])) {
     echo "<div class='alert alert-danger text-center'>خدمة غير محددة</div>";
-    include '../includes/footer.php'; exit;
+    include __DIR__ . '/../../includes/footer.php'	; exit;
 }
 
 $type = $_GET['type'];
@@ -493,7 +493,7 @@ if ($type == 'orthophonist' || $type == 'psychologist' || $type == 'physical_cen
 }
 if (!$pro) {
     echo "<div class='alert alert-danger text-center'>المختص أو الخدمة غير موجودة</div>";
-    include '../includes/footer.php'; exit;
+    include __DIR__ . '/../../includes/footer.php'	; exit;
 }
 
 $msg = '';
@@ -531,7 +531,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit" class="btn btn-success w-100">إرسال الحجز</button>
     </form>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/ads.php
 <?php
@@ -550,7 +550,7 @@ if($ad) {
 puplic/ambulances.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT * FROM ambulances WHERE approved=1");
 $data = $stmt->fetchAll();
@@ -577,12 +577,12 @@ $data = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/consult.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 if(!isset($_SESSION['user'])) {
     header('Location: login.php');
@@ -618,11 +618,11 @@ $doctors = $pdo->query("SELECT d.id, u.name FROM doctors d JOIN users u ON d.use
         <button type="submit" class="btn btn-success w-100">إرسال الاستشارة</button>
     </form>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 puplic/hospitals.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT * FROM hospitals WHERE approved=1");
 $data = $stmt->fetchAll();
@@ -650,13 +650,13 @@ $data = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/imaging_labs.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT * FROM imaging_labs WHERE approved=1");
 $data = $stmt->fetchAll();
@@ -684,13 +684,13 @@ $data = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/labs.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT * FROM labs WHERE approved=1");
 $data = $stmt->fetchAll();
@@ -718,13 +718,13 @@ $data = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/orthophonists.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT u.*, p.specialty, p.bio FROM users u 
     JOIN professionals p ON u.id = p.user_id 
@@ -758,13 +758,13 @@ $data = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/pharmacies.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT * FROM pharmacies WHERE approved=1");
 $pharmacies = $stmt->fetchAll();
@@ -789,13 +789,13 @@ $pharmacies = $stmt->fetchAll();
         <?php endif; ?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/physical_centers.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT u.*, p.specialty, p.bio FROM users u 
     JOIN professionals p ON u.id = p.user_id 
@@ -829,12 +829,12 @@ $data = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/profile.php
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $stmt = $pdo->prepare("SELECT u.*, p.specialty, p.bio FROM users u 
@@ -844,7 +844,7 @@ $pro = $stmt->fetch();
 
 if(!$pro){
     echo "<div class='container py-5'><div class='alert alert-danger text-center'>المختص غير موجود</div></div>";
-    include '../includes/footer.php'; exit;
+    include __DIR__ . '/../../includes/footer.php'	; exit;
 }
 ?>
 <div class="container py-5">
@@ -867,13 +867,13 @@ if(!$pro){
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/psychologists.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 $stmt = $pdo->query("SELECT u.*, p.specialty, p.bio FROM users u 
     JOIN professionals p ON u.id = p.user_id 
@@ -908,13 +908,13 @@ $pros = $stmt->fetchAll();
         <?php endif;?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/review.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 if(!isset($_SESSION['user'])) {
     header('Location: login.php');
@@ -955,7 +955,7 @@ $doctors = $pdo->query("SELECT d.id, u.name FROM doctors d JOIN users u ON d.use
         <button type="submit" class="btn btn-success w-100">إرسال التقييم</button>
     </form>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/send_prescription.php
 
@@ -963,7 +963,7 @@ puplic/send_prescription.php
 
 <?php
 include '../config/db.php';
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 
 if(!isset($_SESSION['user'])) {
     header('Location: login.php');
@@ -1000,7 +1000,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
 
 puplic/subscribe.php
 

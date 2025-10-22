@@ -19,7 +19,7 @@ if($filter_blood)  $query .= " AND blood_type = " . $pdo->quote($filter_blood);
 $query .= " ORDER BY FIELD(urgency,'حرجة','مستعجلة','عادية'), created_at DESC";
 $bloods = $pdo->query($query)->fetchAll();
 
-include '../includes/header.php';
+include __DIR__ . '/../../includes/header.php'	;
 ?>
 <div class="container py-5">
     <div class="mb-4">
@@ -133,4 +133,4 @@ document.getElementById('bloodContactForm').addEventListener('submit', function(
     form.reset();
 });
 </script>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

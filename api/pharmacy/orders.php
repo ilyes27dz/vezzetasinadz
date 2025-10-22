@@ -51,7 +51,7 @@ $statusStyles = [
     'ملغى'         => ['class'=>'danger','icon'=>'bi-x-circle'],
 ];
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="text-success mb-0"><i class="bi bi-truck"></i> تتبع الطلبيات</h3>
@@ -147,4 +147,4 @@ $statusStyles = [
         </table>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

@@ -30,7 +30,7 @@ if ($q) {
     $rare_drugs = $rare_stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
-<?php include 'includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 <div class="container py-5">
     <!-- زر العودة -->
     <div class="mb-4">

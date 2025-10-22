@@ -97,7 +97,7 @@ $consultations_left = $sub ? max(0, intval($sub['allowed_consultations'] ?? 0) -
 $prescriptions_left = $sub ? max(0, intval($sub['allowed_prescriptions'] ?? 0) - intval($sub['used_prescriptions'] ?? 0)) : 0;
 $ads_left = $sub ? max(0, intval($sub['allowed_ads'] ?? 0) - intval($sub['used_ads'] ?? 0)) : 0;
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-4">
     <a href="index.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <div class="row justify-content-center">
@@ -194,4 +194,4 @@ document.querySelectorAll('input[name="plan"]').forEach(function(radio) {
     });
 });
 </script>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

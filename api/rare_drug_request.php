@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include 'includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 <div class="container py-5">
     <a href="drug_search.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <h2 class="mb-4 text-danger"><i class="bi bi-bag-plus"></i> طلب دواء نادر</h2>

@@ -51,7 +51,7 @@ function get_status_badge($status) {
     return '<span class="badge bg-light text-dark">'.htmlspecialchars($status).'</span>';
 }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -417,4 +417,4 @@ body {background: #f7fcff;}
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

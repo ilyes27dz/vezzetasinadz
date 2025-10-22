@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="prescriptions.php" class="btn btn-light mb-3"><i class="bi bi-arrow-right"></i> رجوع للوصفات</a>
     <h3 class="mb-4 text-success"><i class="bi bi-pencil-square"></i> تعديل وصفة طبية</h3>
@@ -85,4 +85,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit" class="btn btn-success w-100">حفظ التعديل</button>
     </form>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

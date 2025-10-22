@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'pharmacy') { header("Location: ../auth/login.php"); exit; }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="text-success mb-0"><i class="bi bi-capsule"></i> لوحة تحكم الصيدلية</h3>
@@ -47,4 +47,4 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'pharmacy') { header("L
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

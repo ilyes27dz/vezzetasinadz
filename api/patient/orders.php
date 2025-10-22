@@ -31,7 +31,7 @@ $statusStyles = [
     'ملغى'         => ['class'=>'danger','icon'=>'bi-x-circle'],
 ];
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="index.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <div class="card shadow p-3">
@@ -99,4 +99,4 @@ $statusStyles = [
         </table>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

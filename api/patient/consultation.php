@@ -10,7 +10,7 @@ $stmt->execute([$_SESSION['user_id']]);
 $sub = $stmt->fetch();
 if (!$sub || $sub['used_consultations'] >= $sub['allowed_consultations']) {
     echo '<div class="alert alert-danger text-center my-4">لقد استنفدت كل الاستشارات المسموحة في اشتراكك الحالي. يرجى التجديد أو الترقية.</div>';
-    include '../includes/footer.php'; exit;
+    include __DIR__ . '/../../includes/footer.php'	; exit;
 }
 
 // جلب الأطباء
@@ -52,7 +52,7 @@ $stmt = $pdo->prepare("SELECT c.*, u.name AS doctor_name FROM consultations c
 $stmt->execute([$_SESSION['user_id']]);
 $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <div class="container py-5">
     <a href="index.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
@@ -96,4 +96,4 @@ $consultations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>

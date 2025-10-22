@@ -13,7 +13,7 @@ $stmt->execute($params);
 $donors = $stmt->fetchAll();
 $cities = $pdo->query("SELECT DISTINCT city FROM blood_donors WHERE is_active=1 ORDER BY city")->fetchAll(PDO::FETCH_COLUMN);
 $blood_types = $pdo->query("SELECT DISTINCT blood_type FROM blood_donors WHERE is_active=1 ORDER BY blood_type")->fetchAll(PDO::FETCH_COLUMN);
-include 'includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 <div class="container py-5">
     <div class="mb-4">

@@ -10,7 +10,7 @@ $stmt->execute([$_SESSION['user_id']]);
 $sub = $stmt->fetch();
 if (!$sub || $sub['used_appointments'] >= $sub['allowed_appointments']) {
     echo '<div class="alert alert-danger text-center my-4">لقد استنفدت كل الحجوزات المسموحة في اشتراكك الحالي. يرجى التجديد أو الترقية.</div>';
-    include '../includes/footer.php'; exit;
+    include __DIR__ . '/../../includes/footer.php'	; exit;
 }
 
 $error = '';
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../../includes/header.php'	; ?>
 <div class="container py-5">
     <a href="index.php" class="btn btn-outline-secondary mb-3"><i class="bi bi-arrow-right"></i> رجوع</a>
     <div class="card shadow p-4 mb-4">
@@ -96,4 +96,4 @@ document.querySelectorAll('input[name="doctor_id"]').forEach(function(radio) {
     });
 });
 </script>
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'	; ?>
