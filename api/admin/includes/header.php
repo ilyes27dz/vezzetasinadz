@@ -4,7 +4,8 @@ if (!isset($notif_count)) {
     // جلب عدد الإشعارات غير المقروءة + آخر 7 إشعارات
     require_once __DIR__ . '/../db.php'
 ;
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=FALSE
+");
     $stmt->execute([$_SESSION['user_id'] ?? 0]);
     $notif_count = $stmt->fetchColumn();
     $stmt = $pdo->prepare("SELECT * FROM notifications WHERE user_id=? ORDER BY created_at DESC LIMIT 7");

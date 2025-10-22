@@ -1,3 +1,16 @@
+<?php
+// يجب أن يكون أول شيء في الملف!
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// تحميل db.php فقط إذا لم يكن محمّلاً
+if (!isset($pdo)) {
+    require_once __DIR__ . '/../api/db.php';
+}
+
+$role = $_SESSION['role'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -38,14 +51,6 @@
     <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
       <ul class="navbar-nav mb-2 mb-lg-0 gap-2 align-items-center">
         <?php
-          if (session_status() === PHP_SESSION_NONE) session_start();
-          
-          // تحميل db.php فقط إذا لم يكن محمّلاً
-          if (!isset($pdo)) {
-              require_once __DIR__ . '/../api/db.php';
-          }
-          
-          $role = $_SESSION['role'] ?? '';
           if ($role !== 'patient' && $role !== 'doctor' && $role !== 'pharmacy'){
         ?>
           <li class="nav-item"><a class="nav-link" href="/">الرئيسية</a></li>

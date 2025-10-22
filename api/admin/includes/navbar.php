@@ -5,7 +5,8 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 $notif_count = 0;
 $notif_list = [];
 if (isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=FALSE
+");
     $stmt->execute([$_SESSION['user_id']]);
     $notif_count = $stmt->fetchColumn();
 
@@ -21,22 +22,22 @@ function get_notification_link($notif) {
         case 'appointment_request':
         case 'appointment_status':
         case 'appointment_confirmed':
-            return '/ayloul_project/admin/appointments.php'; // صفحة إدارة المواعيد للأدمن
+            return '/admin/appointments.php'; // صفحة إدارة المواعيد للأدمن
         case 'blood_request':
-            return '/ayloul_project/admin/blood_requests.php'; // صفحة طلبات التبرع بالدم
+            return '/admin/blood_requests.php'; // صفحة طلبات التبرع بالدم
         case 'message':
-            return '/ayloul_project/admin/messages.php';
+            return '/admin/messages.php';
         case 'order_drug':
-            return '/ayloul_project/admin/orders.php';
+            return '/admin/orders.php';
         case 'testimonials':
-            return '/ayloul_project/admin/testimonials.php';
+            return '/admin/testimonials.php';
         case 'subscription':
-            return '/ayloul_project/admin/subscriptions.php';
+            return '/admin/subscriptions.php';
         case 'ad':
-            return '/ayloul_project/admin/ads.php';
+            return '/admin/ads.php';
         // ... أضف المزيد حسب أنواع الإشعارات في نظامك
         default:
-            return '/ayloul_project/admin/notifications.php'; // صفحة كل الإشعارات كخيار افتراضي
+            return '/admin/notifications.php'; // صفحة كل الإشعارات كخيار افتراضي
     }
 }
 ?>
@@ -157,7 +158,7 @@ function get_notification_link($notif) {
           </li>
         <?php endforeach; ?>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item text-center text-primary" href="/ayloul_project/admin/notifications.php"><i class="bi bi-list"></i> عرض كل الإشعارات</a></li>
+          <li><a class="dropdown-item text-center text-primary" href="/admin/notifications.php"><i class="bi bi-list"></i> عرض كل الإشعارات</a></li>
         <?php endif; ?>
       </ul>
     </div>

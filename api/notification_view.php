@@ -15,7 +15,8 @@ $notif = $stmt->fetch();
 if (!$notif) die("Notification not found");
 
 // اجعل الإشعار مقروءا
-$pdo->prepare("UPDATE notifications SET is_read=1 WHERE id=?")->execute([$_GET['id']]);
+$pdo->prepare("UPDATE notifications SET is_read=TRUE
+ WHERE id=?")->execute([$_GET['id']]);
 
 // التوجيه حسب الدور والنوع
 switch ($notif['type']) {

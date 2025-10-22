@@ -9,7 +9,8 @@ require_once __DIR__ . '/../db.php'
 // إشعارات المستخدم
 $notif_count = 0;
 if (isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=FALSE
+");
     $stmt->execute([$_SESSION['user_id']]);
     $notif_count = $stmt->fetchColumn();
 }
