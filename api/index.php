@@ -2,10 +2,10 @@
 session_start();
 if (isset($_SESSION['user_id']) && isset($_SESSION['role'])) {
     switch ($_SESSION['role']) {
-        case 'admin':    header("Location: admin/dashboard.php"); exit;
-        case 'doctor':   header("Location: doctor/dashboard.php"); exit;
-        case 'patient':  header("Location: patient/index.php"); exit;
-        case 'pharmacy': header("Location: pharmacy/dashboard.php"); exit;
+        case 'admin':    header("Location: ../admin/dashboard.php"); exit;
+        case 'doctor':   header("Location: ../doctor/dashboard.php"); exit;
+        case 'patient':  header("Location: ../patient/index.php"); exit;
+        case 'pharmacy': header("Location: ../pharmacy/dashboard.php"); exit;
     }
 }
 require_once 'db.php';
@@ -13,20 +13,20 @@ require_once 'db.php';
 // قسم عروض المتبرعين بالدم (مُصلّح)
 $donors = $pdo->query("SELECT * FROM blood_donors WHERE is_active=TRUE ORDER BY created_at DESC LIMIT 6")->fetchAll();
 ?>
-<?php include 'includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <!-- HERO SECTION -->
 <section class="hero-section text-center d-flex align-items-center justify-content-center" style="min-height: 70vh; background: linear-gradient(135deg,#e3fff7 0,#f8f8ff 100%);">
     <div class="container">
         <div class="row align-items-center flex-md-row-reverse">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="assets/img/doctors.png" class="img-fluid" style="max-height: 350px" alt="طب">
+                <img src="/assets/img/doctors.png" class="img-fluid" style="max-height: 350px" alt="طب">
             </div>
             <div class="col-lg-6">
                 <h1 class="display-4 fw-bold mb-3 text-success" style="font-family:'Cairo',sans-serif">مرحبا بك في منصتك الطبية الجزائرية</h1>
                 <p class="lead mb-4 text-dark">كل خدمات الصحة في الجزائر بين يديك: أطباء، مخابر، صيدليات، إسعاف، استشارات عن بعد، حجوزات فورية والمزيد!</p>
-                <a href="auth/register.php" class="btn btn-main btn-lg px-5 shadow mb-2">ابدأ الآن مجاناً</a>
-                <a href="contact.php" class="btn btn-outline-success btn-lg px-5 ms-2 mb-2">تواصل معنا</a>
+                <a href="/auth/register.php" class="btn btn-main btn-lg px-5 shadow mb-2">ابدأ الآن مجاناً</a>
+                <a href="/contact.php" class="btn btn-outline-success btn-lg px-5 ms-2 mb-2">تواصل معنا</a>
                 <div class="d-block mt-3 text-muted fw-bold">
                     <i class="bi bi-check-circle text-success"></i> حجوزات فورية  
                     <i class="bi bi-check-circle text-success ms-3"></i> استشارات عن بعد  
@@ -66,7 +66,7 @@ if (count($mainAds) > 0):
             <a href="<?=htmlspecialchars($ad['url'])?>" target="_blank" style="text-decoration:none">
                 <div class="ad-swiper-card">
                     <?php if($ad['image']): ?>
-                        <img src="ads/<?=htmlspecialchars($ad['image'])?>" alt="">
+                        <img src="/ads/<?=htmlspecialchars($ad['image'])?>" alt="">
                     <?php endif; ?>
                     <div class="ad-title"><?=htmlspecialchars($ad['title'])?></div>
                     <div class="ad-desc"><?=htmlspecialchars($ad['description'])?></div>
@@ -103,29 +103,29 @@ var swiper = new Swiper('.swiper', {
         <h2 class="text-center text-success fw-bold mb-4">خدماتنا</h2>
         <div class="row g-4 justify-content-center">
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=doctor" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/doctor.png" alt="الأطباء" width="56" class="mb-2">
+                <a href="/services/list.php?type=doctor" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/doctor.png" alt="الأطباء" width="56" class="mb-2">
                     <h5>الأطباء</h5>
                     <div class="text-muted small">كل التخصصات</div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=pharmacy" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/pharmacy.png" alt="الصيدليات" width="56" class="mb-2">
+                <a href="/services/list.php?type=pharmacy" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/pharmacy.png" alt="الصيدليات" width="56" class="mb-2">
                     <h5>الصيدليات</h5>
                     <div class="text-muted small">صيدليات معتمدة</div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=lab" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/lab.png" alt="مخابر التحليل" width="56" class="mb-2">
+                <a href="/services/list.php?type=lab" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/lab.png" alt="مخابر التحليل" width="56" class="mb-2">
                     <h5>مخابر التحليل</h5>
                     <div class="text-muted small">تحاليل طبية</div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=ambulance" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/ambulance.png" alt="سيارات الإسعاف" width="56" class="mb-2">
+                <a href="/services/list.php?type=ambulance" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/ambulance.png" alt="سيارات الإسعاف" width="56" class="mb-2">
                     <h5>سيارات الإسعاف</h5>
                     <div class="text-muted small">خدمة طارئة</div>
                 </a>
@@ -133,29 +133,29 @@ var swiper = new Swiper('.swiper', {
         </div>
         <div class="row g-4 justify-content-center mt-3">
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=psychologist" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/psychology.png" alt="مختصون نفسيون" width="56" class="mb-2">
+                <a href="/services/list.php?type=psychologist" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/psychology.png" alt="مختصون نفسيون" width="56" class="mb-2">
                     <h5>مختصون نفسيون</h5>
                     <div class="text-muted small">دعم نفسي</div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=orthophonist" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/ortho.png" alt="أرطوفوني" width="56" class="mb-2">
+                <a href="/services/list.php?type=orthophonist" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/ortho.png" alt="أرطوفوني" width="56" class="mb-2">
                     <h5>أرطوفوني</h5>
                     <div class="text-muted small">علاج النطق</div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=imaging" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/imaging.png" alt="مخابر الأشعة" width="56" class="mb-2">
+                <a href="/services/list.php?type=imaging" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/imaging.png" alt="مخابر الأشعة" width="56" class="mb-2">
                     <h5>مخابر الأشعة</h5>
                     <div class="text-muted small">راديو/سكانير</div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a href="services/list.php?type=physical" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
-                    <img src="assets/img/imaging.jpg" alt="مؤسسات استشفائية" width="56" class="mb-2">
+                <a href="/services/list.php?type=physical" class="service-card p-4 d-block text-center shadow-sm text-decoration-none text-dark h-100">
+                    <img src="/assets/img/imaging.jpg" alt="مؤسسات استشفائية" width="56" class="mb-2">
                     <h5>مراكز العلاج الفيزيائي</h5>
                     <div class="text-muted small">مراكز العلاج الفيزيائي</div>
                 </a>
@@ -197,8 +197,8 @@ var swiper = new Swiper('.swiper', {
             <?php endforeach; ?>
         </div>
         <div class="text-center mt-4">
-            <a href="blood_donors.php" class="btn btn-danger btn-lg">شاهد كل العروض</a>
-            <a href="blood_donor_add.php" class="btn btn-outline-danger btn-lg ms-2">أضف نفسك كمتبرع</a>
+            <a href="/blood_donors.php" class="btn btn-danger btn-lg">شاهد كل العروض</a>
+            <a href="/blood_donor_add.php" class="btn btn-outline-danger btn-lg ms-2">أضف نفسك كمتبرع</a>
         </div>
     </div>
 </section>
@@ -252,7 +252,7 @@ $bloods = $pdo->query("SELECT * FROM blood_requests WHERE is_active=TRUE ORDER B
             <?php endif; ?>
         </div>
         <div class="text-center mt-4">
-            <a href="blood_request_add.php" class="btn btn-danger btn-lg">أضف طلب تبرع بالدم</a>
+            <a href="/blood_request_add.php" class="btn btn-danger btn-lg">أضف طلب تبرع بالدم</a>
         </div>
     </div>
 </section>
@@ -312,7 +312,7 @@ document.getElementById('bloodContactForm').addEventListener('submit', function(
 <section class="py-5" style="background: linear-gradient(90deg,#f7fff9 0,#e0f7fa 100%);">
     <div class="container">
         <h2 class="text-center text-success fw-bold mb-4">ابحث عن دواء</h2>
-        <form method="get" action="drug_search.php" class="mb-4 w-75 mx-auto">
+        <form method="get" action="/drug_search.php" class="mb-4 w-75 mx-auto">
             <div class="input-group">
                 <input type="text" name="q" class="form-control form-control-lg" placeholder="اكتب اسم الدواء..." required>
                 <button class="btn btn-success btn-lg" type="submit"><i class="bi bi-search"></i> بحث</button>
@@ -355,7 +355,7 @@ document.getElementById('bloodContactForm').addEventListener('submit', function(
 $('#trackOrderForm').on('submit', function(e){
   e.preventDefault();
   $('#trackOrderResult').html('<div class="text-center text-muted">جاري البحث...</div>');
-  $.post('patient/track_order_ajax.php', $(this).serialize(), function(res){
+  $.post('/patient/track_order_ajax.php', $(this).serialize(), function(res){
     $('#trackOrderResult').html(res.html);
   }, 'json').fail(function(xhr){
     $('#trackOrderResult').html('<div class="text-danger">حدث خطأ أثناء معالجة الطلب!</div>');
@@ -383,7 +383,7 @@ $testimonials = $stmt->fetchAll();
             <?php endforeach; ?>
         </div>
         <?php if(isset($_SESSION['user_id']) && $_SESSION['role']=='patient'): ?>
-        <form action="add_testimonial.php" method="post" class="mt-5">
+        <form action="/add_testimonial.php" method="post" class="mt-5">
             <h5 class="mb-3 text-success">هل لديك تجربة جميلة معنا؟ شاركها:</h5>
             <input type="text" name="city" class="form-control mb-2" placeholder="مدينتك (اختياري)">
             <textarea name="content" class="form-control mb-2" placeholder="اكتب رأيك هنا" required></textarea>
@@ -401,7 +401,7 @@ if ($ad2):
 <section class="my-4 text-center">
     <a href="<?=htmlspecialchars($ad2['url'])?>" target="_blank" style="text-decoration:none">
         <div class="d-inline-block p-3 bg-white shadow rounded-4" style="min-width:280px;">
-            <img src="ads/<?=htmlspecialchars($ad2['image'])?>" alt="" style="height:60px;">
+            <img src="/ads/<?=htmlspecialchars($ad2['image'])?>" alt="" style="height:60px;">
             <h5 class="fw-bold mt-2 mb-1 text-success"><?=htmlspecialchars($ad2['title'])?></h5>
             <div class="small text-muted"><?=htmlspecialchars($ad2['description'])?></div>
             <?php if(!empty($ad2['phone'])): ?>
@@ -417,9 +417,9 @@ if ($ad2):
     <div class="container">
         <h2 class="fw-bold mb-3">جاهز لتجربة صحية رقمية فريدة؟</h2>
         <p class="lead mb-4">سجّل الآن واحجز أول موعد لك أو استفد من استشارة طبية عن بعد!</p>
-        <a href="auth/register.php" class="btn btn-light btn-lg fw-bold px-5">سجّل مجاناً الآن</a>
-        <a href="contact.php" class="btn btn-outline-light btn-lg fw-bold px-5 ms-2">تواصل معنا</a>
+        <a href="/auth/register.php" class="btn btn-light btn-lg fw-bold px-5">سجّل مجاناً الآن</a>
+        <a href="/contact.php" class="btn btn-outline-light btn-lg fw-bold px-5 ms-2">تواصل معنا</a>
     </div>
 </section>
 
-<?php include 'includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
