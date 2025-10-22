@@ -9,8 +9,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role'])) {
     }
 }
 require_once 'db.php';
-// قسم عروض المتبرعين بالدم (الجديد)
-$donors = $pdo->query("SELECT * FROM blood_donors WHERE is_active=1 ORDER BY created_at DESC LIMIT 6")->fetchAll();
+
+// قسم عروض المتبرعين بالدم (مُصلّح)
+$donors = $pdo->query("SELECT * FROM blood_donors WHERE is_active=TRUE ORDER BY created_at DESC LIMIT 6")->fetchAll();
 ?>
 <?php include 'includes/header.php'; ?>
 
@@ -36,9 +37,9 @@ $donors = $pdo->query("SELECT * FROM blood_donors WHERE is_active=1 ORDER BY cre
     </div>
 </section>
 
-<!-- سلايدر إعلانات متحرك وجذاب -->
+<!-- سلايدر إعلانات متحرك وجذاب (مُصلّح) -->
 <?php
-$mainAds = $pdo->query("SELECT * FROM medical_ads WHERE is_active=1 ORDER BY created_at DESC LIMIT 8")->fetchAll();
+$mainAds = $pdo->query("SELECT * FROM medical_ads WHERE is_active=TRUE ORDER BY created_at DESC LIMIT 8")->fetchAll();
 if (count($mainAds) > 0):
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -203,10 +204,14 @@ var swiper = new Swiper('.swiper', {
 </section>
 <?php endif; ?>
 
-<!-- قسم طلبات الدم (كما هو في صفحتك) -->
+<!-- قسم طلبات الدم (مُصلّح) -->
 <?php
-$bloods = $pdo->query("SELECT * FROM blood_requests WHERE is_active=1 ORDER BY 
-    FIELD(urgency,'حرجة','مستعجلة','عادية'), created_at DESC LIMIT 6")->fetchAll();
+$bloods = $pdo->query("SELECT * FROM blood_requests WHERE is_active=TRUE ORDER BY 
+    CASE urgency 
+        WHEN 'حرجة' THEN 1 
+        WHEN 'مستعجلة' THEN 2 
+        ELSE 3 
+    END, created_at DESC LIMIT 6")->fetchAll();
 ?>
 <section class="py-5" style="background: linear-gradient(90deg,#fff4f4 0,#fff8f8 100%);">
     <div class="container">
@@ -252,7 +257,7 @@ $bloods = $pdo->query("SELECT * FROM blood_requests WHERE is_active=1 ORDER BY
     </div>
 </section>
 
-<!-- مودال التواصل مع صاحب منشور الدم (كما هو) -->
+<!-- مودال التواصل مع صاحب منشور الدم -->
 <div class="modal fade" id="contactBloodModal" tabindex="-1" aria-labelledby="contactBloodModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form class="modal-content" id="bloodContactForm">
@@ -358,9 +363,9 @@ $('#trackOrderForm').on('submit', function(e){
 });
 </script>
 
-<!-- قسم شهادات المرضى (ماذا قالوا عنا) -->
+<!-- قسم شهادات المرضى (مُصلّح) -->
 <?php
-$stmt = $pdo->query("SELECT t.*, u.name FROM testimonials t JOIN users u ON t.user_id=u.id WHERE t.approved=1 ORDER BY t.created_at DESC LIMIT 3");
+$stmt = $pdo->query("SELECT t.*, u.name FROM testimonials t JOIN users u ON t.user_id=u.id WHERE t.approved=TRUE ORDER BY t.created_at DESC LIMIT 3");
 $testimonials = $stmt->fetchAll();
 ?>
 <section class="py-5 bg-white">
@@ -388,9 +393,9 @@ $testimonials = $stmt->fetchAll();
     </div>
 </section>
 
-<!-- إعلان طبي عشوائي أسفل الصفحة -->
+<!-- إعلان طبي عشوائي أسفل الصفحة (مُصلّح) -->
 <?php
-$ad2 = $pdo->query("SELECT * FROM medical_ads WHERE is_active=1 ORDER BY RAND() LIMIT 1 OFFSET 2")->fetch();
+$ad2 = $pdo->query("SELECT * FROM medical_ads WHERE is_active=TRUE ORDER BY RANDOM() LIMIT 1 OFFSET 2")->fetch();
 if ($ad2):
 ?>
 <section class="my-4 text-center">
