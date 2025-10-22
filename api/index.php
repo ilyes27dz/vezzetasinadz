@@ -423,3 +423,5 @@ if ($ad2):
 </section>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>
+/ /   u p d a t e d  
+ 
