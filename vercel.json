@@ -6,19 +6,105 @@
     }
   },
   "routes": [
-    { "src": "^/$", "dest": "/api/index.php" },
-    { "src": "^/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "^/css/(.*)", "dest": "/css/$1" },
-    { "src": "^/js/(.*)", "dest": "/js/$1" },
-    { "src": "^/ads/(.*)", "dest": "/ads/$1" },
-    { "src": "^/uploads/(.*)", "dest": "/uploads/$1" },
-    { "src": "^/auth/(.*)", "dest": "/api/auth/$1" },
-    { "src": "^/admin/(.*)", "dest": "/api/admin/$1" },
-    { "src": "^/doctor/(.*)", "dest": "/api/doctor/$1" },
-    { "src": "^/patient/(.*)", "dest": "/api/patient/$1" },
-    { "src": "^/pharmacy/(.*)", "dest": "/api/pharmacy/$1" },
-    { "src": "^/services/(.*)", "dest": "/api/services/$1" },
-    { "src": "^/(contact|blood_donors|blood_donor_add|blood_request_add|drug_search|add_testimonial)\\.php$", "dest": "/api/$1.php" },
-    { "src": "^/(.*)$", "dest": "/api/index.php" }
+    {
+      "src": "^/$",
+      "dest": "/api/index.php"
+    },
+    {
+      "src": "^/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "^/css/(.*)",
+      "dest": "/css/$1"
+    },
+    {
+      "src": "^/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "^/ads/(.*)",
+      "dest": "/ads/$1"
+    },
+    {
+      "src": "^/uploads/(.*)",
+      "dest": "/uploads/$1"
+    },
+    {
+      "src": "^/auth/login\\.php$",
+      "dest": "/api/auth/login.php"
+    },
+    {
+      "src": "^/auth/register\\.php$",
+      "dest": "/api/auth/register.php"
+    },
+    {
+      "src": "^/auth/logout\\.php$",
+      "dest": "/api/auth/logout.php"
+    },
+    {
+      "src": "^/admin/dashboard\\.php$",
+      "dest": "/api/admin/dashboard.php"
+    },
+    {
+      "src": "^/admin/(.*)\\.php$",
+      "dest": "/api/admin/$1.php"
+    },
+    {
+      "src": "^/doctor/index\\.php$",
+      "dest": "/api/doctor/index.php"
+    },
+    {
+      "src": "^/doctor/(.*)\\.php$",
+      "dest": "/api/doctor/$1.php"
+    },
+    {
+      "src": "^/patient/index\\.php$",
+      "dest": "/api/patient/index.php"
+    },
+    {
+      "src": "^/patient/(.*)\\.php$",
+      "dest": "/api/patient/$1.php"
+    },
+    {
+      "src": "^/pharmacy/dashboard\\.php$",
+      "dest": "/api/pharmacy/dashboard.php"
+    },
+    {
+      "src": "^/pharmacy/(.*)\\.php$",
+      "dest": "/api/pharmacy/$1.php"
+    },
+    {
+      "src": "^/services/(.*)\\.php$",
+      "dest": "/api/services/$1.php"
+    },
+    {
+      "src": "^/contact\\.php$",
+      "dest": "/api/contact.php"
+    },
+    {
+      "src": "^/blood_donors\\.php$",
+      "dest": "/api/blood_donors.php"
+    },
+    {
+      "src": "^/blood_donor_add\\.php$",
+      "dest": "/api/blood_donor_add.php"
+    },
+    {
+      "src": "^/blood_request_add\\.php$",
+      "dest": "/api/blood_request_add.php"
+    },
+    {
+      "src": "^/drug_search\\.php$",
+      "dest": "/api/drug_search.php"
+    },
+    {
+      "src": "^/(.*)\\.php$",
+      "dest": "/api/$1.php"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/api/index.php"
+    }
   ]
 }
