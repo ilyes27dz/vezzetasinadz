@@ -3,9 +3,12 @@ session_start();
 require_once __DIR__ . '/../db.php';
 
 $error = '';
+$redirect_url = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
+    
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email=?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
@@ -13,28 +16,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
-
-        // توجيه حسب الدور
+        
+        // تحديد صفحة التوجيه حسب الدور
         if ($user['role'] == 'pharmacy') {
             $_SESSION['pharmacy_id'] = $user['pharmacy_id'];
-            header("Location: /pharmacy/dashboard.php");
-            exit;
+            $redirect_url = '/pharmacy/dashboard.php';
         }
         elseif ($user['role'] == 'admin') {
-            header("Location: /admin/dashboard.php");
-            exit;
+            $redirect_url = '/admin/dashboard.php';
         }
         elseif ($user['role'] == 'doctor') {
-            header("Location: /doctor/index.php");
-            exit;
+            $redirect_url = '/doctor/index.php';
         }
         elseif ($user['role'] == 'patient') {
-            header("Location: /patient/index.php");
-            exit;
+            $redirect_url = '/patient/index.php';
         }
         else {
-            header("Location: /");
-            exit;
+            $redirect_url = '/';
         }
     } else {
         $error = "بيانات الدخول غير صحيحة!";
@@ -43,12 +41,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 include __DIR__ . '/../../includes/header.php';
 ?>
+
+<?php if($redirect_url): ?>
+<script>
+// redirect باستخدام JavaScript
+window.location.href = '<?= $redirect_url ?>';
+</script>
+<?php endif; ?>
+
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-md-5">
       <div class="card p-4 shadow">
         <h3 class="text-success mb-3 text-center">تسجيل الدخول</h3>
-        <?php if($error): ?><div class="alert alert-danger"><?=$error?></div><?php endif; ?>
+        
+        <?php if($error): ?>
+          <div class="alert alert-danger"><?=$error?></div>
+        <?php endif; ?>
+        
+        <?php if($redirect_url): ?>
+          <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i> تم تسجيل الدخول بنجاح! جاري التوجيه...
+          </div>
+        <?php endif; ?>
+        
         <form method="post">
           <div class="mb-3">
             <label class="form-label">البريد الإلكتروني</label>
@@ -67,4 +83,5 @@ include __DIR__ . '/../../includes/header.php';
     </div>
   </div>
 </div>
+
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
