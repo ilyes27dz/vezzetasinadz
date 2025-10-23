@@ -1,23 +1,26 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../auth/login.php"); exit;
+    header("Location: ../auth/login.php"); 
+    exit;
 }
-require_once __DIR__ . '/../db.php'
-;
+require_once __DIR__ . '/../db.php';
+
 $counts = [
   'doctors'   => $pdo->query("SELECT COUNT(*) FROM doctors")->fetchColumn(),
   'patients'  => $pdo->query("SELECT COUNT(*) FROM users WHERE role='patient'")->fetchColumn(),
   'pharmacies'=> $pdo->query("SELECT COUNT(*) FROM users WHERE role='pharmacy'")->fetchColumn(),
   'appointments'=> $pdo->query("SELECT COUNT(*) FROM appointments")->fetchColumn(),
-  'testimonials_pending'=> $pdo->query("SELECT COUNT(*) FROM testimonials WHERE approved=0")->fetchColumn(),
+  'testimonials_pending'=> $pdo->query("SELECT COUNT(*) FROM testimonials WHERE approved=FALSE")->fetchColumn(),
   'ads'       => $pdo->query("SELECT COUNT(*) FROM medical_ads")->fetchColumn(),
-  'blood'     => $pdo->query("SELECT COUNT(*) FROM blood_requests WHERE is_active=1")->fetchColumn(),
+  'blood'     => $pdo->query("SELECT COUNT(*) FROM blood_requests WHERE is_active=TRUE")->fetchColumn(),
   'distributors' => $pdo->query("SELECT COUNT(*) FROM distributors")->fetchColumn(),
   'subscriptions' => $pdo->query("SELECT COUNT(*) FROM subscriptions")->fetchColumn(),
   'rare_drugs' => $pdo->query("SELECT COUNT(*) FROM rare_drugs")->fetchColumn(),
 ];
 ?>
+
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>

@@ -17,23 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // توجيه حسب الدور
         if ($user['role'] == 'pharmacy') {
             $_SESSION['pharmacy_id'] = $user['pharmacy_id'];
-            header("Location: ../pharmacy/dashboard.php");
+            header("Location: /pharmacy/dashboard.php");
             exit;
         }
         elseif ($user['role'] == 'admin') {
-            header("Location: ../admin/dashboard.php");
+            header("Location: /admin/dashboard.php");
             exit;
         }
         elseif ($user['role'] == 'doctor') {
-            header("Location: ../doctor/index.php");
+            header("Location: /doctor/index.php");
             exit;
         }
         elseif ($user['role'] == 'patient') {
-            header("Location: ../patient/index.php");
+            header("Location: /patient/index.php");
             exit;
         }
         else {
-            header("Location: ../index.php");
+            header("Location: /");
             exit;
         }
     } else {
